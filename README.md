@@ -1,23 +1,80 @@
-# ACI606 - Docker Rescue Challenge
+# ACI606 - Docker Rescue Challenge (solución reparada)
 
-Este repositorio contiene una aplicación web multi-servicio que debe ejecutarse mediante Docker Compose.
+Aplicación multi-servicio: **Frontend (Nginx) -> Backend/API (FastAPI) -> Database (PostgreSQL)**, ejecutada con Docker Compose.
 
-## Arquitectura general
+## Arquitectura final
 
-Frontend (Nginx) -> Backend/API (FastAPI) -> Database (PostgreSQL)
+```
+Navegador --(host:8080)--> frontend (nginx:80) --/api/--> backend (uvicorn:8000) --> db (postgres:5432)
+                                                                                     |
+                                                                          volumen pgdata (datos)
+```
 
-## Situación inicial
+- Red interna: `rescue_net`. Los servicios se comunican por **nombre de servicio** (`backend`, `db`), nunca por `localhost`.
+- Solo el frontend publica un puerto al host (`FRONTEND_PORT`, por defecto 8080). Backend y base de datos quedan internos.
+- Persistencia: volumen nombrado `pgdata` montado en `/var/lib/postgresql/data`.
+- Healthchecks: `db` (pg_isready), `backend` (GET /health, que también prueba la base), `frontend` (GET /).
+- Orden de arranque: `db` sano -> `backend` sano -> `frontend`.
 
-El sistema fue recibido desde un equipo anterior y presenta múltiples problemas de construcción, configuración, comunicación y operación. No se informa la cantidad total de fallas ni su ubicación.
+## Configuración
 
-Su trabajo consiste en diagnosticar el sistema utilizando evidencia técnica, reparar las incidencias identificadas y demostrar que la solución final puede ejecutarse de forma reproducible.
+Las variables están en `.env.example`. Docker Compose lee automáticamente un archivo `.env` si existe; si no existe, usa los valores por defecto definidos en `compose.yaml`.
 
-## Inicio sugerido
+```bash
+cp .env.example .env   # opcional: para cambiar usuario, contraseña, base o puerto
+```
+
+| Variable | Uso | Por defecto |
+|---|---|---|
+| POSTGRES_USER | usuario de PostgreSQL (db y backend) | appuser |
+| POSTGRES_PASSWORD | contraseña de PostgreSQL (db y backend) | rescue123 |
+| POSTGRES_DB | nombre de la base | appdb |
+| FRONTEND_PORT | puerto del host para el frontend | 8080 |
+
+`DATABASE_URL` del backend se arma con las mismas variables, así la base y la API no pueden quedar con credenciales distintas.
+
+## Iniciar
 
 ```bash
 docker compose up --build -d
-docker compose ps
-docker compose logs
+docker compose ps        # esperar a que los 3 servicios aparezcan "healthy"
 ```
 
-No reemplace la aplicación por un proyecto nuevo. Trabaje sobre los archivos suministrados y documente cada modificación en el informe técnico y mediante el historial del repositorio.
+## Verificar
+
+```bash
+curl -s http://localhost:8080/api/health
+curl -s -X POST http://localhost:8080/api/items -H "Content-Type: application/json" -d '{"name":"prueba"}'
+curl -s http://localhost:8080/api/items
+docker compose exec db psql -U appuser -d appdb -c "SELECT * FROM items;"
+```
+
+En Codespaces, abrir la pestaña **Ports** y el puerto **8080** para ver la interfaz web.
+
+## Observar y diagnosticar
+
+```bash
+docker compose ps
+docker compose logs <servicio>
+docker inspect <contenedor>
+docker volume ls
+docker network ls
+```
+
+## Detener
+
+```bash
+docker compose down        # elimina contenedores y red; los datos quedan en el volumen pgdata
+```
+
+## Recrear
+
+```bash
+docker compose up --build -d   # los registros creados antes siguen disponibles
+```
+
+Para borrar también los datos (reinicio total): `docker compose down -v`.
+
+## Reparaciones
+
+El detalle de cada incidencia (R-01, R-02, ...) está en el informe técnico y en el historial de commits. La carpeta `evidencias/` contiene las salidas de los comandos usados para diagnosticar y verificar.
