@@ -1,0 +1,39 @@
+name: evidencias
+
+# Reproduce cada incidencia (commit anterior a la reparacion), verifica cada reparacion
+# y ejecuta las pruebas obligatorias P1-P6 en una maquina limpia con Docker.
+on:
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+jobs:
+  evidencias:
+    runs-on: ubuntu-latest
+    timeout-minutes: 30
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+
+      - name: Versiones
+        run: docker --version && docker compose version
+
+      - name: Recolectar evidencias
+        run: bash scripts/recolectar_evidencias.sh
+
+      - name: Subir evidencias como artefacto
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: evidencias
+          path: evidencias/
+
+      - name: Guardar evidencias en el repositorio
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add evidencias
+          git commit -m "Evidencias de diagnostico, reparaciones y pruebas P1-P6 (ejecucion automatica)" || echo "sin cambios"
+          git push
