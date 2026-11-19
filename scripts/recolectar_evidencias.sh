@@ -19,7 +19,7 @@ fi
 
 REPO="$(git rev-parse --show-toplevel)"
 cd "$REPO"
-RAMA="$(git rev-parse --abbrev-ref HEAD)"
+RAMA="$(git symbolic-ref -q --short HEAD || git rev-parse HEAD)"
 if [ -n "$(git status --porcelain)" ]; then
   echo "El arbol de trabajo tiene cambios sin commit. Haz commit o stash antes de ejecutar." >&2
   exit 1
@@ -37,8 +37,19 @@ ev() {
 }
 nota() { echo "## $2" >> "$EV/$1.txt"; }
 paso() { echo; echo "=== $1"; }
+# Commit de cada etapa, buscado por el asunto del commit (inicial, r01..r08, mejoras).
+ref_de() {
+  local p
+  case "$1" in
+    inicial) p='^Estado inicial' ;;
+    mejoras) p='^Mejoras:' ;;
+    r0[1-9]) p="^R-0${1#r0}:" ;;
+    *) echo "$1"; return ;;
+  esac
+  git log --format=%H -n1 -E --grep="$p" "$RAMA"
+}
 ir() {
-  git checkout -q "$1"
+  git checkout -q "$(ref_de "$1")"
   echo "   (codigo en '$1': $(git log -1 --format=%s))"
   for id in "${@:2}"; do echo "## Codigo en $1 ($(git rev-parse --short HEAD)): $(git log -1 --format=%s)" >> "$EV/$id.txt"; done
 }
