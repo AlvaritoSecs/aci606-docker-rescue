@@ -7,17 +7,17 @@
   <text x="260" y="95" text-anchor="middle" font-weight="bold">frontend</text>
   <text x="260" y="112" text-anchor="middle" font-size="10">nginx:1.27-alpine</text>
   <text x="260" y="128" text-anchor="middle" font-size="10">escucha :80</text>
-  <text x="260" y="146" text-anchor="middle" font-size="10" fill="#b3261e">proxy_pass → localhost:8000 ✗</text>
+  <text x="260" y="146" text-anchor="middle" font-size="8.5" fill="#b3261e">proxy_pass → localhost:8000 ✗</text>
   <rect x="400" y="70" width="160" height="90" rx="8" fill="#eaf2fa" stroke="#13507c"/>
   <text x="480" y="95" text-anchor="middle" font-weight="bold">backend</text>
   <text x="480" y="112" text-anchor="middle" font-size="10">python:3.12-slim · FastAPI</text>
-  <text x="480" y="128" text-anchor="middle" font-size="10" fill="#b3261e">CMD app:app ✗ · sin psycopg2 ✗</text>
-  <text x="480" y="146" text-anchor="middle" font-size="10" fill="#b3261e">DB: wrongpass@localhost ✗</text>
+  <text x="480" y="128" text-anchor="middle" font-size="8.5" fill="#b3261e">CMD app:app ✗ · sin psycopg2 ✗</text>
+  <text x="480" y="146" text-anchor="middle" font-size="8.5" fill="#b3261e">DB: wrongpass@localhost ✗</text>
   <rect x="620" y="70" width="130" height="90" rx="8" fill="#eaf2fa" stroke="#13507c"/>
   <text x="685" y="95" text-anchor="middle" font-weight="bold">db</text>
   <text x="685" y="112" text-anchor="middle" font-size="10">postgres:16-alpine</text>
   <text x="685" y="128" text-anchor="middle" font-size="10">:5432 (interno)</text>
-  <text x="685" y="146" text-anchor="middle" font-size="10" fill="#b3261e">sin volumen nombrado ✗</text>
+  <text x="685" y="146" text-anchor="middle" font-size="8.5" fill="#b3261e">sin volumen nombrado ✗</text>
   <line x1="120" y1="115" x2="178" y2="115" stroke="#555" stroke-width="1.5" marker-end="url(#a)"/>
   <text x="149" y="105" text-anchor="middle" font-size="9" fill="#b3261e">8080→8080 ✗</text>
   <line x1="340" y1="115" x2="398" y2="115" stroke="#555" stroke-width="1.5" marker-end="url(#a)" stroke-dasharray="4,3"/>
