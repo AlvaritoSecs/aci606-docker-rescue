@@ -1,0 +1,17 @@
+# Evidencia real de la ejecucion 44608988634 (antes de agregar proxy_connect_timeout)
+# Con backend detenido, la peticion /api/health queda colgada: curl corta a los 15 s y nginx registra 499 (cliente cerro la conexion).
+
+## FALLO CONTROLADO 2: se detiene el servicio backend
+$ docker compose stop backend
+ Container aci606-docker-rescue-backend-1 Stopping 
+ Container aci606-docker-rescue-backend-1 Stopped 
+
+$ curl -s -i --max-time 15 http://localhost:8080/api/health
+
+$ docker compose logs --tail 3 frontend
+frontend-1  | 127.0.0.1 - - [19/Nov/2026:20:33:38 +0000] "GET / HTTP/1.1" 200 2561 "-" "Wget" "-"
+frontend-1  | 127.0.0.1 - - [19/Nov/2026:20:33:48 +0000] "GET / HTTP/1.1" 200 2561 "-" "Wget" "-"
+frontend-1  | 172.18.0.1 - - [19/Nov/2026:20:33:48 +0000] "GET /api/health HTTP/1.1" 499 0 "-" "curl/8.18.0" "-"
+
+$ docker compose ps -a
+NAME                              IMAGE                           COMMAND                  SERVICE    CREATED              STATUS                        PORTS
