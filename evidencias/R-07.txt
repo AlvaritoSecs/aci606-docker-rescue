@@ -30,20 +30,20 @@ backend-1  | ERROR:    Application startup failed. Exiting.
 $ docker compose logs --tail 8 db
 db-1  | PostgreSQL init process complete; ready for start up.
 db-1  | 
-db-1  | 2026-11-19 20:37:44.885 UTC [1] LOG:  starting PostgreSQL 16.16 on x86_64-pc-linux-musl, compiled by gcc (Alpine 15.2.0) 15.2.0, 64-bit
-db-1  | 2026-11-19 20:37:44.885 UTC [1] LOG:  listening on IPv4 address "0.0.0.0", port 5432
-db-1  | 2026-11-19 20:37:44.885 UTC [1] LOG:  listening on IPv6 address "::", port 5432
-db-1  | 2026-11-19 20:37:44.886 UTC [1] LOG:  listening on Unix socket "/run/postgresql/.s.PGSQL.5432"
-db-1  | 2026-11-19 20:37:44.887 UTC [57] LOG:  database system was shut down at 2026-11-19 20:37:44 UTC
-db-1  | 2026-11-19 20:37:44.890 UTC [1] LOG:  database system is ready to accept connections
+db-1  | 2026-11-19 22:52:13.445 UTC [1] LOG:  starting PostgreSQL 16.16 on x86_64-pc-linux-musl, compiled by gcc (Alpine 15.2.0) 15.2.0, 64-bit
+db-1  | 2026-11-19 22:52:13.445 UTC [1] LOG:  listening on IPv4 address "0.0.0.0", port 5432
+db-1  | 2026-11-19 22:52:13.445 UTC [1] LOG:  listening on IPv6 address "::", port 5432
+db-1  | 2026-11-19 22:52:13.446 UTC [1] LOG:  listening on Unix socket "/run/postgresql/.s.PGSQL.5432"
+db-1  | 2026-11-19 22:52:13.448 UTC [57] LOG:  database system was shut down at 2026-11-19 22:52:13 UTC
+db-1  | 2026-11-19 22:52:13.453 UTC [1] LOG:  database system is ready to accept connections
 
 ## Codigo en r07 (0609708): R-07: el backend esperaba solo el arranque de db, no que estuviera lista
 ## VERIFICACION (arranque limpio: backend espera a db healthy)
 $ docker compose ps -a
 NAME                              IMAGE                           COMMAND                  SERVICE    CREATED          STATUS                    PORTS
-aci606-docker-rescue-backend-1    aci606-docker-rescue-backend    "uvicorn main:app --…"   backend    15 seconds ago   Up 9 seconds              8000/tcp
-aci606-docker-rescue-db-1         postgres:16-alpine              "docker-entrypoint.s…"   db         15 seconds ago   Up 14 seconds (healthy)   5432/tcp
-aci606-docker-rescue-frontend-1   aci606-docker-rescue-frontend   "/docker-entrypoint.…"   frontend   15 seconds ago   Up 9 seconds              0.0.0.0:8080->80/tcp, [::]:8080->80/tcp
+aci606-docker-rescue-backend-1    aci606-docker-rescue-backend    "uvicorn main:app --…"   backend    16 seconds ago   Up 9 seconds              8000/tcp
+aci606-docker-rescue-db-1         postgres:16-alpine              "docker-entrypoint.s…"   db         16 seconds ago   Up 15 seconds (healthy)   5432/tcp
+aci606-docker-rescue-frontend-1   aci606-docker-rescue-frontend   "/docker-entrypoint.…"   frontend   16 seconds ago   Up 9 seconds              0.0.0.0:8080->80/tcp, [::]:8080->80/tcp
 
 $ docker compose logs --tail 8 backend
 backend-1  | INFO:     Started server process [1]

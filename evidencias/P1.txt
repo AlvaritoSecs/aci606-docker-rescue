@@ -1,4 +1,4 @@
-## Codigo en main (93955b1): Script de evidencias: codigo de salida de compose up y tiempo de respuesta en caida del backend
+## Codigo en main (e60bd4a): Script de evidencias: docker ps -a, docker exec sh, validacion de compose y recreacion solo del contenedor db
 ## PREPARACION: .env a partir de .env.example (en Codespaces lo hace postCreateCommand)
 $ test -f .env && echo '.env ya existe' || cp -v .env.example .env
 '.env.example' -> '.env'
@@ -12,9 +12,9 @@ docker compose up --build -d -> codigo de salida 0
 
 $ docker compose ps
 NAME                              IMAGE                           COMMAND                  SERVICE    CREATED          STATUS                    PORTS
-aci606-docker-rescue-backend-1    aci606-docker-rescue-backend    "uvicorn main:app --…"   backend    23 seconds ago   Up 18 seconds (healthy)   8000/tcp
-aci606-docker-rescue-db-1         postgres:16-alpine              "docker-entrypoint.s…"   db         23 seconds ago   Up 23 seconds (healthy)   5432/tcp
-aci606-docker-rescue-frontend-1   aci606-docker-rescue-frontend   "/docker-entrypoint.…"   frontend   23 seconds ago   Up 12 seconds (healthy)   0.0.0.0:8080->80/tcp, [::]:8080->80/tcp
+aci606-docker-rescue-backend-1    aci606-docker-rescue-backend    "uvicorn main:app --…"   backend    24 seconds ago   Up 18 seconds (healthy)   8000/tcp
+aci606-docker-rescue-db-1         postgres:16-alpine              "docker-entrypoint.s…"   db         24 seconds ago   Up 23 seconds (healthy)   5432/tcp
+aci606-docker-rescue-frontend-1   aci606-docker-rescue-frontend   "/docker-entrypoint.…"   frontend   24 seconds ago   Up 12 seconds (healthy)   0.0.0.0:8080->80/tcp, [::]:8080->80/tcp
 
 $ docker compose exec -T backend id
 uid=10001(appuser) gid=10001(appuser) groups=10001(appuser)

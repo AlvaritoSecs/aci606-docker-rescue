@@ -6,7 +6,7 @@ $ docker compose stop backend
 $ time curl -s -i --max-time 15 http://localhost:8080/api/health
 HTTP/1.1 504 Gateway Time-out
 Server: nginx/1.27.5
-Date: Thu, 19 Nov 2026 20:41:15 GMT
+Date: Thu, 19 Nov 2026 22:55:53 GMT
 Content-Type: text/html
 Content-Length: 167
 Connection: keep-alive
@@ -19,13 +19,13 @@ Connection: keep-alive
 </body>
 </html>
 
-real	0m5.006s
-user	0m0.000s
-sys	0m0.005s
+real	0m5.012s
+user	0m0.003s
+sys	0m0.003s
 
 $ docker compose logs --tail 2 frontend
-frontend-1  | 172.18.0.1 - - [19/Nov/2026:20:41:15 +0000] "GET /api/health HTTP/1.1" 504 167 "-" "curl/8.18.0" "-"
-frontend-1  | 2026/11/19 20:41:15 [error] 29#29: *25 upstream timed out (110: Operation timed out) while connecting to upstream, client: 172.18.0.1, server: _, request: "GET /api/health HTTP/1.1", upstream: "http://172.18.0.3:8000/health", host: "localhost:8080"
+frontend-1  | 2026/11/19 22:55:53 [error] 29#29: *27 upstream timed out (110: Operation timed out) while connecting to upstream, client: 172.18.0.1, server: _, request: "GET /api/health HTTP/1.1", upstream: "http://172.18.0.3:8000/health", host: "localhost:8080"
+frontend-1  | 172.18.0.1 - - [19/Nov/2026:22:55:53 +0000] "GET /api/health HTTP/1.1" 504 167 "-" "curl/8.18.0" "-"
 
 $ docker compose ps -a
 NAME                              IMAGE                           COMMAND                  SERVICE    CREATED              STATUS                        PORTS
@@ -43,8 +43,8 @@ $ docker compose start backend
 $ docker compose ps
 NAME                              IMAGE                           COMMAND                  SERVICE    CREATED              STATUS                        PORTS
 aci606-docker-rescue-backend-1    aci606-docker-rescue-backend    "uvicorn main:app --…"   backend    About a minute ago   Up 6 seconds (healthy)        8000/tcp
-aci606-docker-rescue-db-1         postgres:16-alpine              "docker-entrypoint.s…"   db         About a minute ago   Up 24 seconds (healthy)       5432/tcp
+aci606-docker-rescue-db-1         postgres:16-alpine              "docker-entrypoint.s…"   db         About a minute ago   Up 25 seconds (healthy)       5432/tcp
 aci606-docker-rescue-frontend-1   aci606-docker-rescue-frontend   "/docker-entrypoint.…"   frontend   About a minute ago   Up About a minute (healthy)   0.0.0.0:8080->80/tcp, [::]:8080->80/tcp
 
 $ curl -s http://localhost:8080/api/items
-[{"id":1,"name":"robot-1","created_at":"2026-11-19T20:39:41.898318"},{"id":2,"name":"robot-2","created_at":"2026-11-19T20:39:41.906786"}]
+[{"id":1,"name":"robot-1","created_at":"2026-11-19T22:54:12.177832"},{"id":2,"name":"robot-2","created_at":"2026-11-19T22:54:12.187291"},{"id":3,"name":"despues-de-recrear-db","created_at":"2026-11-19T22:54:44.560065"}]

@@ -2,9 +2,9 @@
 ## SINTOMA
 $ docker compose ps -a
 NAME                              IMAGE                           COMMAND                  SERVICE    CREATED          STATUS                     PORTS
-aci606-docker-rescue-backend-1    aci606-docker-rescue-backend    "uvicorn main:app --…"   backend    10 seconds ago   Exited (3) 9 seconds ago   
-aci606-docker-rescue-db-1         postgres:16-alpine              "docker-entrypoint.s…"   db         53 seconds ago   Up 53 seconds              5432/tcp
-aci606-docker-rescue-frontend-1   aci606-docker-rescue-frontend   "/docker-entrypoint.…"   frontend   10 seconds ago   Up 10 seconds              80/tcp, 0.0.0.0:8080->8080/tcp, [::]:8080->8080/tcp
+aci606-docker-rescue-backend-1    aci606-docker-rescue-backend    "uvicorn main:app --…"   backend    11 seconds ago   Exited (3) 9 seconds ago   
+aci606-docker-rescue-db-1         postgres:16-alpine              "docker-entrypoint.s…"   db         59 seconds ago   Up 57 seconds              5432/tcp
+aci606-docker-rescue-frontend-1   aci606-docker-rescue-frontend   "/docker-entrypoint.…"   frontend   11 seconds ago   Up 10 seconds              80/tcp, 0.0.0.0:8080->8080/tcp, [::]:8080->8080/tcp
 
 $ docker compose logs --tail 20 backend
 backend-1  |          ^^^^^^^^^^^^^^^^^^^
@@ -31,22 +31,22 @@ backend-1  | ERROR:    Application startup failed. Exiting.
 $ docker compose logs --tail 10 db
 db-1  | PostgreSQL init process complete; ready for start up.
 db-1  | 
-db-1  | 2026-11-19 20:36:18.750 UTC [1] LOG:  starting PostgreSQL 16.16 on x86_64-pc-linux-musl, compiled by gcc (Alpine 15.2.0) 15.2.0, 64-bit
-db-1  | 2026-11-19 20:36:18.750 UTC [1] LOG:  listening on IPv4 address "0.0.0.0", port 5432
-db-1  | 2026-11-19 20:36:18.750 UTC [1] LOG:  listening on IPv6 address "::", port 5432
-db-1  | 2026-11-19 20:36:18.752 UTC [1] LOG:  listening on Unix socket "/run/postgresql/.s.PGSQL.5432"
-db-1  | 2026-11-19 20:36:18.754 UTC [58] LOG:  database system was shut down at 2026-11-19 20:36:18 UTC
-db-1  | 2026-11-19 20:36:18.758 UTC [1] LOG:  database system is ready to accept connections
-db-1  | 2026-11-19 20:37:00.777 UTC [63] FATAL:  password authentication failed for user "appuser"
-db-1  | 2026-11-19 20:37:00.777 UTC [63] DETAIL:  Connection matched file "/var/lib/postgresql/data/pg_hba.conf" line 128: "host all all all scram-sha-256"
+db-1  | 2026-11-19 22:50:27.422 UTC [1] LOG:  starting PostgreSQL 16.16 on x86_64-pc-linux-musl, compiled by gcc (Alpine 15.2.0) 15.2.0, 64-bit
+db-1  | 2026-11-19 22:50:27.422 UTC [1] LOG:  listening on IPv4 address "0.0.0.0", port 5432
+db-1  | 2026-11-19 22:50:27.422 UTC [1] LOG:  listening on IPv6 address "::", port 5432
+db-1  | 2026-11-19 22:50:27.423 UTC [1] LOG:  listening on Unix socket "/run/postgresql/.s.PGSQL.5432"
+db-1  | 2026-11-19 22:50:27.426 UTC [58] LOG:  database system was shut down at 2026-11-19 22:50:27 UTC
+db-1  | 2026-11-19 22:50:27.430 UTC [1] LOG:  database system is ready to accept connections
+db-1  | 2026-11-19 22:51:13.232 UTC [63] FATAL:  password authentication failed for user "appuser"
+db-1  | 2026-11-19 22:51:13.232 UTC [63] DETAIL:  Connection matched file "/var/lib/postgresql/data/pg_hba.conf" line 128: "host all all all scram-sha-256"
 
 ## Codigo en r04 (66032b4): R-04: password de DATABASE_URL no coincidia con POSTGRES_PASSWORD
 ## VERIFICACION
 $ docker compose ps -a
 NAME                              IMAGE                           COMMAND                  SERVICE    CREATED              STATUS              PORTS
-aci606-docker-rescue-backend-1    aci606-docker-rescue-backend    "uvicorn main:app --…"   backend    10 seconds ago       Up 10 seconds       8000/tcp
+aci606-docker-rescue-backend-1    aci606-docker-rescue-backend    "uvicorn main:app --…"   backend    11 seconds ago       Up 10 seconds       8000/tcp
 aci606-docker-rescue-db-1         postgres:16-alpine              "docker-entrypoint.s…"   db         About a minute ago   Up About a minute   5432/tcp
-aci606-docker-rescue-frontend-1   aci606-docker-rescue-frontend   "/docker-entrypoint.…"   frontend   10 seconds ago       Up 10 seconds       80/tcp, 0.0.0.0:8080->8080/tcp, [::]:8080->8080/tcp
+aci606-docker-rescue-frontend-1   aci606-docker-rescue-frontend   "/docker-entrypoint.…"   frontend   11 seconds ago       Up 10 seconds       80/tcp, 0.0.0.0:8080->8080/tcp, [::]:8080->8080/tcp
 
 $ docker compose exec -T backend python -c "import urllib.request;print(urllib.request.urlopen('http://localhost:8000/health').read().decode())"
 {"status":"ok","database":"reachable"}

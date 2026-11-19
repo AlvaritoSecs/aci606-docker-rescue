@@ -22,11 +22,11 @@ $ docker compose up -d >/dev/null 2>&1; echo "docker compose up -d -> codigo de 
 docker compose up -d -> codigo de salida 0
 
 $ curl -s http://localhost:8080/api/items
-[{"id":1,"name":"robot-1","created_at":"2026-11-19T20:39:41.898318"},{"id":2,"name":"robot-2","created_at":"2026-11-19T20:39:41.906786"}]
+[{"id":1,"name":"robot-1","created_at":"2026-11-19T22:54:12.177832"},{"id":2,"name":"robot-2","created_at":"2026-11-19T22:54:12.187291"}]
 $ docker volume inspect $(docker volume ls -q | grep pgdata)
 [
     {
-        "CreatedAt": "2026-11-19T20:39:18Z",
+        "CreatedAt": "2026-11-19T22:53:48Z",
         "Driver": "local",
         "Labels": {
             "com.docker.compose.config-hash": "010675f8ef66497322fc52767366b73828fda6a9f9b1911caf0d441d4064b4f3",
@@ -40,4 +40,25 @@ $ docker volume inspect $(docker volume ls -q | grep pgdata)
         "Scope": "local"
     }
 ]
+
+## RECREACION SOLO DEL CONTENEDOR ASOCIADO (db)
+$ docker inspect --format 'id del contenedor db antes:   {{.Id}}' $(docker compose ps -q db)
+id del contenedor db antes:   88198cf234ecdfbd8352ad2a9ae3a8cd7f3958c8fe94425a7763b44cb7abdb98
+
+$ docker compose up -d --force-recreate db >/dev/null 2>&1; echo "docker compose up -d --force-recreate db -> codigo de salida $?"
+docker compose up -d --force-recreate db -> codigo de salida 0
+
+$ docker inspect --format 'id del contenedor db despues: {{.Id}}' $(docker compose ps -q db)
+id del contenedor db despues: bdcd494386192997bafb7a49d1ef8a653d067f4e35b61c332fc14327c21561c0
+
+$ curl -s -X POST localhost:8080/api/items -H 'Content-Type: application/json' -d '{"name":"despues-de-recrear-db"}'
+{"id":3,"name":"despues-de-recrear-db","created_at":"2026-11-19T22:54:44.560065"}
+$ docker compose exec -T db psql -U appuser -d appdb -c 'SELECT id, name FROM items ORDER BY id;'
+ id |         name          
+----+-----------------------
+  1 | robot-1
+  2 | robot-2
+  3 | despues-de-recrear-db
+(3 rows)
+
 
