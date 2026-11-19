@@ -103,6 +103,7 @@ nota R-03 "SINTOMA"
 ev R-03 "docker compose ps -a"
 ev R-03 "docker compose logs --tail 20 backend"
 ev R-03 "docker compose config | grep DATABASE_URL"
+ev R-03 "docker compose run --rm --no-deps -T --entrypoint sh backend -c 'echo localhost:; getent hosts localhost; echo db:; getent hosts db'"
 
 paso "R-03 -> verificacion / R-04 sintoma"
 ir r03 R-03 R-04
@@ -189,15 +190,20 @@ ev MEJORAS "docker compose ps"
 ev MEJORAS "docker network ls"
 ev MEJORAS "docker volume ls"
 ev MEJORAS "docker inspect --format '{{.Name}} -> {{json .State.Health.Status}}' \$(docker compose ps -q)"
+ev MEJORAS "docker network inspect aci606-docker-rescue_rescue_net --format '{{range .Containers}}{{.Name}}  {{.IPv4Address}}{{println}}{{end}}'"
 bajar -v
 
 # ---------------------------------------------------------------- pruebas P1-P6 (version final)
 paso "Pruebas obligatorias sobre la version final ($RAMA)"
 ir "$RAMA" P1
+nota P1 "PREPARACION: .env a partir de .env.example (en Codespaces lo hace postCreateCommand)"
+ev P1 "test -f .env && echo '.env ya existe' || cp -v .env.example .env"
 nota P1 "ARRANQUE LIMPIO desde el proyecto detenido"
-ev P1 "docker compose up --build -d 2>&1 | tail -8"
+ev P1 "docker compose ps -a"
+ev P1 "docker compose --progress plain up --build -d 2>&1 | tail -12"
 esperar_sano 3
 ev P1 "docker compose ps"
+ev P1 "docker compose exec -T backend id"
 
 nota P2 "COMUNICACION frontend -> backend -> PostgreSQL"
 ev P2 "curl -s http://localhost:8080/api/health"
@@ -235,6 +241,31 @@ ev P6 "docker compose ps"
 ev P6 "curl -s http://localhost:8080/api/health"
 ev P6 "curl -s http://localhost:8080/api/items"
 captura P6_navegador_recuperado
+
+nota P4b "FALLO CONTROLADO 2: se detiene el servicio backend"
+ev P4b "docker compose stop backend"
+ev P4b "curl -s -i --max-time 15 http://localhost:8080/api/health"
+ev P4b "docker compose logs --tail 3 frontend"
+ev P4b "docker compose ps -a"
+captura P4b_navegador_backend_detenido
+nota P4b "RECUPERACION"
+ev P4b "docker compose start backend"
+esperar_sano 3
+ev P4b "docker compose ps"
+ev P4b "curl -s http://localhost:8080/api/items"
+
+nota P7 "CONFIGURACION EXTERNALIZADA: cambiar el puerto publicado solo editando .env (sin tocar compose.yaml ni reconstruir)"
+cp .env /tmp/env.respaldo
+ev P7 "sed -i 's/^FRONTEND_PORT=.*/FRONTEND_PORT=9090/' .env && grep FRONTEND_PORT .env"
+ev P7 "docker compose up -d 2>&1 | tail -4"
+esperar_sano 3
+ev P7 "docker compose ps frontend"
+ev P7 "curl -s -o /dev/null -w 'puerto 9090 -> HTTP %{http_code}\n' http://localhost:9090/"
+ev P7 "curl -s -o /dev/null --max-time 3 -w 'puerto 8080 -> HTTP %{http_code}\n' http://localhost:8080/ || true"
+cp /tmp/env.respaldo .env
+ev P7 "docker compose up -d 2>&1 | tail -4"
+esperar_sano 3
+ev P7 "docker compose ps frontend"
 
 bajar
 rm -rf "$REPO/evidencias"; cp -r "$EV" "$REPO/evidencias"
