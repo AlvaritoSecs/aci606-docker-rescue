@@ -62,7 +62,20 @@ docker compose ps        # los 3 servicios deben quedar "healthy" (~30 s)
 
 4. Pestaña **Ports** → puerto **8080** → abrir en el navegador.
 
+## Construir las imágenes
+
+```bash
+docker compose build     # construye backend y frontend (postgres usa imagen oficial)
+docker images | grep aci606-docker-rescue
+```
+
+`docker compose up --build -d` también construye antes de iniciar.
+
 ## Iniciar (cualquier equipo con Docker)
+
+```bash
+cp -n .env.example .env  # opcional; sin .env se usan los valores por defecto
+```
 
 ```bash
 docker compose up --build -d
