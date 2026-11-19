@@ -1,0 +1,24 @@
+## Codigo en mejoras (fa0090e): Mejoras: configuracion externalizada, healthchecks, red y README reproducible
+$ docker compose ps
+NAME                              IMAGE                           COMMAND                  SERVICE    CREATED          STATUS                    PORTS
+aci606-docker-rescue-backend-1    aci606-docker-rescue-backend    "uvicorn main:app --…"   backend    23 seconds ago   Up 16 seconds (healthy)   8000/tcp
+aci606-docker-rescue-db-1         postgres:16-alpine              "docker-entrypoint.s…"   db         23 seconds ago   Up 22 seconds (healthy)   5432/tcp
+aci606-docker-rescue-frontend-1   aci606-docker-rescue-frontend   "/docker-entrypoint.…"   frontend   23 seconds ago   Up 11 seconds (healthy)   0.0.0.0:8080->80/tcp, [::]:8080->80/tcp
+
+$ docker network ls
+NETWORK ID     NAME                              DRIVER    SCOPE
+5ef20e44a2d1   aci606-docker-rescue_rescue_net   bridge    local
+95b0166ac6ee   bridge                            bridge    local
+4c2b20b9ec38   host                              host      local
+f13adf5a48ef   none                              null      local
+
+$ docker volume ls
+DRIVER    VOLUME NAME
+local     88b73570c25606ba62ff1ccde069fd621dc8a81694f0d14ea867c82405ae0fff
+local     aci606-docker-rescue_pgdata
+
+$ docker inspect --format '{{.Name}} -> {{json .State.Health.Status}}' $(docker compose ps -q)
+/aci606-docker-rescue-backend-1 -> "healthy"
+/aci606-docker-rescue-db-1 -> "healthy"
+/aci606-docker-rescue-frontend-1 -> "healthy"
+

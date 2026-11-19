@@ -1,0 +1,53 @@
+## SINTOMA (arranque limpio con 'docker compose down -v' + 'up'; codigo en r06)
+$ docker compose ps -a
+NAME                              IMAGE                           COMMAND                  SERVICE    CREATED         STATUS                     PORTS
+aci606-docker-rescue-backend-1    aci606-docker-rescue-backend    "uvicorn main:app --…"   backend    4 seconds ago   Exited (3) 3 seconds ago   
+aci606-docker-rescue-db-1         postgres:16-alpine              "docker-entrypoint.s…"   db         4 seconds ago   Up 4 seconds               5432/tcp
+aci606-docker-rescue-frontend-1   aci606-docker-rescue-frontend   "/docker-entrypoint.…"   frontend   4 seconds ago   Up 4 seconds               0.0.0.0:8080->80/tcp, [::]:8080->80/tcp
+
+$ docker compose logs --tail 20 backend
+backend-1  |   File "/usr/local/lib/python3.12/site-packages/sqlalchemy/util/langhelpers.py", line 146, in __exit__
+backend-1  |     raise exc_value.with_traceback(exc_tb)
+backend-1  |   File "/usr/local/lib/python3.12/site-packages/sqlalchemy/pool/base.py", line 896, in __connect
+backend-1  |     self.dbapi_connection = connection = pool._invoke_creator(self)
+backend-1  |                                          ^^^^^^^^^^^^^^^^^^^^^^^^^^
+backend-1  |   File "/usr/local/lib/python3.12/site-packages/sqlalchemy/engine/create.py", line 643, in connect
+backend-1  |     return dialect.connect(*cargs, **cparams)
+backend-1  |            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+backend-1  |   File "/usr/local/lib/python3.12/site-packages/sqlalchemy/engine/default.py", line 621, in connect
+backend-1  |     return self.loaded_dbapi.connect(*cargs, **cparams)
+backend-1  |            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+backend-1  |   File "/usr/local/lib/python3.12/site-packages/psycopg2/__init__.py", line 122, in connect
+backend-1  |     conn = _connect(dsn, connection_factory=connection_factory, **kwasync)
+backend-1  |            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+backend-1  | sqlalchemy.exc.OperationalError: (psycopg2.OperationalError) connection to server at "db" (172.18.0.2), port 5432 failed: Connection refused
+backend-1  | 	Is the server running on that host and accepting TCP/IP connections?
+backend-1  | 
+backend-1  | (Background on this error at: https://sqlalche.me/e/20/e3q8)
+backend-1  | 
+backend-1  | ERROR:    Application startup failed. Exiting.
+
+$ docker compose logs --tail 8 db
+db-1  | PostgreSQL init process complete; ready for start up.
+db-1  | 
+db-1  | 2026-11-19 19:45:41.053 UTC [1] LOG:  starting PostgreSQL 16.16 on x86_64-pc-linux-musl, compiled by gcc (Alpine 15.2.0) 15.2.0, 64-bit
+db-1  | 2026-11-19 19:45:41.053 UTC [1] LOG:  listening on IPv4 address "0.0.0.0", port 5432
+db-1  | 2026-11-19 19:45:41.053 UTC [1] LOG:  listening on IPv6 address "::", port 5432
+db-1  | 2026-11-19 19:45:41.054 UTC [1] LOG:  listening on Unix socket "/run/postgresql/.s.PGSQL.5432"
+db-1  | 2026-11-19 19:45:41.055 UTC [57] LOG:  database system was shut down at 2026-11-19 19:45:40 UTC
+db-1  | 2026-11-19 19:45:41.057 UTC [1] LOG:  database system is ready to accept connections
+
+## Codigo en r07 (0609708): R-07: el backend esperaba solo el arranque de db, no que estuviera lista
+## VERIFICACION (arranque limpio: backend espera a db healthy)
+$ docker compose ps -a
+NAME                              IMAGE                           COMMAND                  SERVICE    CREATED          STATUS                    PORTS
+aci606-docker-rescue-backend-1    aci606-docker-rescue-backend    "uvicorn main:app --…"   backend    15 seconds ago   Up 9 seconds              8000/tcp
+aci606-docker-rescue-db-1         postgres:16-alpine              "docker-entrypoint.s…"   db         15 seconds ago   Up 14 seconds (healthy)   5432/tcp
+aci606-docker-rescue-frontend-1   aci606-docker-rescue-frontend   "/docker-entrypoint.…"   frontend   15 seconds ago   Up 9 seconds              0.0.0.0:8080->80/tcp, [::]:8080->80/tcp
+
+$ docker compose logs --tail 8 backend
+backend-1  | INFO:     Started server process [1]
+backend-1  | INFO:     Waiting for application startup.
+backend-1  | INFO:     Application startup complete.
+backend-1  | INFO:     Uvicorn running on http://0.0.0.0:8000 (Press CTRL+C to quit)
+

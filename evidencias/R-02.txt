@@ -1,0 +1,47 @@
+## Codigo en r01 (6c5ce48): R-01: CMD del backend apuntaba a app:app; el modulo real es main.py
+## SINTOMA
+$ docker compose ps -a
+NAME                              IMAGE                           COMMAND                  SERVICE    CREATED          STATUS                     PORTS
+aci606-docker-rescue-backend-1    aci606-docker-rescue-backend    "uvicorn main:app --…"   backend    10 seconds ago   Exited (1) 9 seconds ago   
+aci606-docker-rescue-db-1         postgres:16-alpine              "docker-entrypoint.s…"   db         22 seconds ago   Up 22 seconds              5432/tcp
+aci606-docker-rescue-frontend-1   aci606-docker-rescue-frontend   "/docker-entrypoint.…"   frontend   10 seconds ago   Up 10 seconds              80/tcp, 0.0.0.0:8080->8080/tcp, [::]:8080->8080/tcp
+
+$ docker compose logs --tail 20 backend
+backend-1  |            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+backend-1  |   File "<frozen importlib._bootstrap>", line 1387, in _gcd_import
+backend-1  |   File "<frozen importlib._bootstrap>", line 1360, in _find_and_load
+backend-1  |   File "<frozen importlib._bootstrap>", line 1331, in _find_and_load_unlocked
+backend-1  |   File "<frozen importlib._bootstrap>", line 935, in _load_unlocked
+backend-1  |   File "<frozen importlib._bootstrap_external>", line 999, in exec_module
+backend-1  |   File "<frozen importlib._bootstrap>", line 488, in _call_with_frames_removed
+backend-1  |   File "/app/main.py", line 13, in <module>
+backend-1  |     engine = create_engine(DATABASE_URL, pool_pre_ping=True)
+backend-1  |              ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+backend-1  |   File "<string>", line 2, in create_engine
+backend-1  |   File "/usr/local/lib/python3.12/site-packages/sqlalchemy/util/deprecations.py", line 281, in warned
+backend-1  |     return fn(*args, **kwargs)  # type: ignore[no-any-return]
+backend-1  |            ^^^^^^^^^^^^^^^^^^^
+backend-1  |   File "/usr/local/lib/python3.12/site-packages/sqlalchemy/engine/create.py", line 599, in create_engine
+backend-1  |     dbapi = dbapi_meth(**dbapi_args)
+backend-1  |             ^^^^^^^^^^^^^^^^^^^^^^^^
+backend-1  |   File "/usr/local/lib/python3.12/site-packages/sqlalchemy/dialects/postgresql/psycopg2.py", line 690, in import_dbapi
+backend-1  |     import psycopg2
+backend-1  | ModuleNotFoundError: No module named 'psycopg2'
+
+## Codigo en r02 (d460d36): R-02: agregar driver PostgreSQL psycopg2-binary
+## VERIFICACION (el modulo psycopg2 ya se importa)
+$ docker compose exec -T backend pip show psycopg2-binary || docker compose run --rm --no-deps -T backend pip show psycopg2-binary
+service "backend" is not running
+ Container aci606-docker-rescue-backend-run-439c95ef0d0b Creating 
+ Container aci606-docker-rescue-backend-run-439c95ef0d0b Created 
+Name: psycopg2-binary
+Version: 2.9.10
+Summary: psycopg2 - Python-PostgreSQL Database Adapter
+Home-page: https://psycopg.org/
+Author: Federico Di Gregorio
+Author-email: fog@initd.org
+License: LGPL with exceptions
+Location: /usr/local/lib/python3.12/site-packages
+Requires: 
+Required-by: 
+

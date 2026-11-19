@@ -1,0 +1,47 @@
+## PERSISTENCIA: se recrean todos los contenedores (down + up) y se consulta
+$ docker compose down
+ Container aci606-docker-rescue-frontend-1 Stopping 
+ Container aci606-docker-rescue-frontend-1 Stopped 
+ Container aci606-docker-rescue-frontend-1 Removing 
+ Container aci606-docker-rescue-frontend-1 Removed 
+ Container aci606-docker-rescue-backend-1 Stopping 
+ Container aci606-docker-rescue-backend-1 Stopped 
+ Container aci606-docker-rescue-backend-1 Removing 
+ Container aci606-docker-rescue-backend-1 Removed 
+ Container aci606-docker-rescue-db-1 Stopping 
+ Container aci606-docker-rescue-db-1 Stopped 
+ Container aci606-docker-rescue-db-1 Removing 
+ Container aci606-docker-rescue-db-1 Removed 
+ Network aci606-docker-rescue_rescue_net Removing 
+ Network aci606-docker-rescue_rescue_net Removed 
+
+$ docker compose ps -a
+NAME      IMAGE     COMMAND   SERVICE   CREATED   STATUS    PORTS
+
+$ docker compose up -d 2>&1 | tail -5
+ Container aci606-docker-rescue-backend-1 Started 
+ Container aci606-docker-rescue-backend-1 Waiting 
+ Container aci606-docker-rescue-backend-1 Healthy 
+ Container aci606-docker-rescue-frontend-1 Starting 
+ Container aci606-docker-rescue-frontend-1 Started 
+
+$ curl -s http://localhost:8080/api/items
+[{"id":1,"name":"robot-1","created_at":"2026-11-19T19:47:36.092383"},{"id":2,"name":"robot-2","created_at":"2026-11-19T19:47:36.099988"}]
+$ docker volume inspect $(docker volume ls -q | grep pgdata)
+[
+    {
+        "CreatedAt": "2026-11-19T19:47:12Z",
+        "Driver": "local",
+        "Labels": {
+            "com.docker.compose.config-hash": "010675f8ef66497322fc52767366b73828fda6a9f9b1911caf0d441d4064b4f3",
+            "com.docker.compose.project": "aci606-docker-rescue",
+            "com.docker.compose.version": "5.1.3",
+            "com.docker.compose.volume": "pgdata"
+        },
+        "Mountpoint": "/var/lib/docker/volumes/aci606-docker-rescue_pgdata/_data",
+        "Name": "aci606-docker-rescue_pgdata",
+        "Options": null,
+        "Scope": "local"
+    }
+]
+

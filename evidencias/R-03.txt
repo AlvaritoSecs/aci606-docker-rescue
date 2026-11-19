@@ -1,0 +1,57 @@
+## Codigo en r02 (d460d36): R-02: agregar driver PostgreSQL psycopg2-binary
+## SINTOMA
+$ docker compose ps -a
+NAME                              IMAGE                           COMMAND                  SERVICE    CREATED          STATUS                      PORTS
+aci606-docker-rescue-backend-1    aci606-docker-rescue-backend    "uvicorn main:app --…"   backend    11 seconds ago   Exited (3) 10 seconds ago   
+aci606-docker-rescue-db-1         postgres:16-alpine              "docker-entrypoint.s…"   db         41 seconds ago   Up 40 seconds               5432/tcp
+aci606-docker-rescue-frontend-1   aci606-docker-rescue-frontend   "/docker-entrypoint.…"   frontend   11 seconds ago   Up 10 seconds               80/tcp, 0.0.0.0:8080->8080/tcp, [::]:8080->8080/tcp
+
+$ docker compose logs --tail 20 backend
+backend-1  |   File "/usr/local/lib/python3.12/site-packages/sqlalchemy/pool/base.py", line 896, in __connect
+backend-1  |     self.dbapi_connection = connection = pool._invoke_creator(self)
+backend-1  |                                          ^^^^^^^^^^^^^^^^^^^^^^^^^^
+backend-1  |   File "/usr/local/lib/python3.12/site-packages/sqlalchemy/engine/create.py", line 643, in connect
+backend-1  |     return dialect.connect(*cargs, **cparams)
+backend-1  |            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+backend-1  |   File "/usr/local/lib/python3.12/site-packages/sqlalchemy/engine/default.py", line 621, in connect
+backend-1  |     return self.loaded_dbapi.connect(*cargs, **cparams)
+backend-1  |            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+backend-1  |   File "/usr/local/lib/python3.12/site-packages/psycopg2/__init__.py", line 122, in connect
+backend-1  |     conn = _connect(dsn, connection_factory=connection_factory, **kwasync)
+backend-1  |            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+backend-1  | sqlalchemy.exc.OperationalError: (psycopg2.OperationalError) connection to server at "localhost" (::1), port 5432 failed: Connection refused
+backend-1  | 	Is the server running on that host and accepting TCP/IP connections?
+backend-1  | connection to server at "localhost" (127.0.0.1), port 5432 failed: Connection refused
+backend-1  | 	Is the server running on that host and accepting TCP/IP connections?
+backend-1  | 
+backend-1  | (Background on this error at: https://sqlalche.me/e/20/e3q8)
+backend-1  | 
+backend-1  | ERROR:    Application startup failed. Exiting.
+
+$ docker compose config | grep DATABASE_URL
+      DATABASE_URL: postgresql://appuser:wrongpass@localhost:5432/appdb
+
+## Codigo en r03 (86cb72a): R-03: DATABASE_URL usaba localhost; se usa el servicio db
+## VERIFICACION (el backend ya llega al servicio db)
+$ docker compose logs --tail 20 backend
+backend-1  |          ^^^^^^^^^^^^^^^^^^^
+backend-1  |   File "/usr/local/lib/python3.12/site-packages/sqlalchemy/util/langhelpers.py", line 146, in __exit__
+backend-1  |     raise exc_value.with_traceback(exc_tb)
+backend-1  |   File "/usr/local/lib/python3.12/site-packages/sqlalchemy/pool/base.py", line 896, in __connect
+backend-1  |     self.dbapi_connection = connection = pool._invoke_creator(self)
+backend-1  |                                          ^^^^^^^^^^^^^^^^^^^^^^^^^^
+backend-1  |   File "/usr/local/lib/python3.12/site-packages/sqlalchemy/engine/create.py", line 643, in connect
+backend-1  |     return dialect.connect(*cargs, **cparams)
+backend-1  |            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+backend-1  |   File "/usr/local/lib/python3.12/site-packages/sqlalchemy/engine/default.py", line 621, in connect
+backend-1  |     return self.loaded_dbapi.connect(*cargs, **cparams)
+backend-1  |            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+backend-1  |   File "/usr/local/lib/python3.12/site-packages/psycopg2/__init__.py", line 122, in connect
+backend-1  |     conn = _connect(dsn, connection_factory=connection_factory, **kwasync)
+backend-1  |            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+backend-1  | sqlalchemy.exc.OperationalError: (psycopg2.OperationalError) connection to server at "db" (172.18.0.2), port 5432 failed: FATAL:  password authentication failed for user "appuser"
+backend-1  | 
+backend-1  | (Background on this error at: https://sqlalche.me/e/20/e3q8)
+backend-1  | 
+backend-1  | ERROR:    Application startup failed. Exiting.
+

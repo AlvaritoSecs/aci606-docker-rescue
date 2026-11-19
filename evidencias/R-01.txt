@@ -1,0 +1,35 @@
+## Codigo en inicial (547f80e): Estado inicial: paquete recibido sin modificar
+## SINTOMA
+$ docker compose ps -a
+NAME                              IMAGE                           COMMAND                  SERVICE    CREATED          STATUS                      PORTS
+aci606-docker-rescue-backend-1    aci606-docker-rescue-backend    "uvicorn app:app --h…"   backend    12 seconds ago   Exited (1) 10 seconds ago   
+aci606-docker-rescue-db-1         postgres:16-alpine              "docker-entrypoint.s…"   db         12 seconds ago   Up 11 seconds               5432/tcp
+aci606-docker-rescue-frontend-1   aci606-docker-rescue-frontend   "/docker-entrypoint.…"   frontend   12 seconds ago   Up 10 seconds               80/tcp, 0.0.0.0:8080->8080/tcp, [::]:8080->8080/tcp
+
+$ docker compose logs --tail 20 backend
+backend-1  | ERROR:    Error loading ASGI app. Could not import module "app".
+
+## Codigo en r01 (6c5ce48): R-01: CMD del backend apuntaba a app:app; el modulo real es main.py
+## VERIFICACION (el error de importacion de 'app' desaparece)
+$ docker compose logs --tail 20 backend
+backend-1  |            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+backend-1  |   File "<frozen importlib._bootstrap>", line 1387, in _gcd_import
+backend-1  |   File "<frozen importlib._bootstrap>", line 1360, in _find_and_load
+backend-1  |   File "<frozen importlib._bootstrap>", line 1331, in _find_and_load_unlocked
+backend-1  |   File "<frozen importlib._bootstrap>", line 935, in _load_unlocked
+backend-1  |   File "<frozen importlib._bootstrap_external>", line 999, in exec_module
+backend-1  |   File "<frozen importlib._bootstrap>", line 488, in _call_with_frames_removed
+backend-1  |   File "/app/main.py", line 13, in <module>
+backend-1  |     engine = create_engine(DATABASE_URL, pool_pre_ping=True)
+backend-1  |              ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+backend-1  |   File "<string>", line 2, in create_engine
+backend-1  |   File "/usr/local/lib/python3.12/site-packages/sqlalchemy/util/deprecations.py", line 281, in warned
+backend-1  |     return fn(*args, **kwargs)  # type: ignore[no-any-return]
+backend-1  |            ^^^^^^^^^^^^^^^^^^^
+backend-1  |   File "/usr/local/lib/python3.12/site-packages/sqlalchemy/engine/create.py", line 599, in create_engine
+backend-1  |     dbapi = dbapi_meth(**dbapi_args)
+backend-1  |             ^^^^^^^^^^^^^^^^^^^^^^^^
+backend-1  |   File "/usr/local/lib/python3.12/site-packages/sqlalchemy/dialects/postgresql/psycopg2.py", line 690, in import_dbapi
+backend-1  |     import psycopg2
+backend-1  | ModuleNotFoundError: No module named 'psycopg2'
+

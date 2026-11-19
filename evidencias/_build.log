@@ -1,0 +1,1669 @@
+ Image postgres:16-alpine Pulling 
+ 98e9a0326760 Pulling fs layer 0B
+ cc382d912eb7 Pulling fs layer 0B
+ 881fc932939e Pulling fs layer 0B
+ 7a36a4ed4172 Pulling fs layer 0B
+ b9f6a8f632b2 Pulling fs layer 0B
+ 59b353deb50e Pulling fs layer 0B
+ 47714f1b82c2 Pulling fs layer 0B
+ 8e5860b895ab Pulling fs layer 0B
+ 576cb8ef4643 Pulling fs layer 0B
+ 6cedc56424d1 Pulling fs layer 0B
+ 98e9a0326760 Download complete 0B
+ 576cb8ef4643 Downloading 19.92MB
+ 8e5860b895ab Download complete 0B
+ 881fc932939e Download complete 0B
+ 47714f1b82c2 Download complete 0B
+ cc382d912eb7 Download complete 0B
+ 6cedc56424d1 Download complete 0B
+ b9f6a8f632b2 Download complete 0B
+ 7a36a4ed4172 Download complete 0B
+ 59b353deb50e Download complete 0B
+ 881fc932939e Extracting 1B
+ 576cb8ef4643 Downloading 45.09MB
+ 881fc932939e Extracting 1B
+ 576cb8ef4643 Downloading 84.93MB
+ 02682a6b40e8 Download complete 0B
+ dada3b93fb98 Download complete 0B
+ 881fc932939e Pull complete 0B
+ cc382d912eb7 Pull complete 0B
+ 6cedc56424d1 Pull complete 0B
+ 7a36a4ed4172 Pull complete 0B
+ 59b353deb50e Pull complete 0B
+ 576cb8ef4643 Download complete 0B
+ 576cb8ef4643 Extracting 1B
+ 576cb8ef4643 Extracting 1B
+ 576cb8ef4643 Extracting 1B
+ 576cb8ef4643 Extracting 1B
+ 576cb8ef4643 Extracting 1B
+ 576cb8ef4643 Extracting 1B
+ 576cb8ef4643 Extracting 1B
+ 576cb8ef4643 Extracting 1B
+ 576cb8ef4643 Extracting 1B
+ 576cb8ef4643 Extracting 1B
+ 576cb8ef4643 Extracting 2B
+ 576cb8ef4643 Extracting 2B
+ 98e9a0326760 Pull complete 0B
+ 8e5860b895ab Pull complete 0B
+ 47714f1b82c2 Pull complete 0B
+ b9f6a8f632b2 Pull complete 0B
+ 576cb8ef4643 Pull complete 0B
+ Image postgres:16-alpine Pulled 
+ Image aci606-docker-rescue-frontend Building 
+ Image aci606-docker-rescue-backend Building 
+#1 [internal] load local bake definitions
+#1 reading from stdin 1.15kB done
+#1 DONE 0.0s
+
+#2 [frontend internal] load build definition from Dockerfile
+#2 transferring dockerfile: 168B done
+#2 DONE 0.0s
+
+#3 [backend internal] load build definition from Dockerfile
+#3 transferring dockerfile: 242B done
+#3 DONE 0.0s
+
+#4 [backend internal] load metadata for docker.io/library/python:3.12-slim
+#4 ...
+
+#5 [auth] library/python:pull token for registry-1.docker.io
+#5 DONE 0.0s
+
+#6 [auth] library/nginx:pull token for registry-1.docker.io
+#6 DONE 0.0s
+
+#7 [frontend internal] load metadata for docker.io/library/nginx:1.27-alpine
+#7 ...
+
+#4 [backend internal] load metadata for docker.io/library/python:3.12-slim
+#4 DONE 0.8s
+
+#8 [backend internal] load .dockerignore
+#8 transferring context: 2B done
+#8 DONE 0.0s
+
+#9 [backend internal] load build context
+#9 transferring context: 1.94kB done
+#9 DONE 0.0s
+
+#7 [frontend internal] load metadata for docker.io/library/nginx:1.27-alpine
+#7 DONE 0.8s
+
+#10 [frontend internal] load .dockerignore
+#10 transferring context: 2B done
+#10 DONE 0.0s
+
+#11 [frontend internal] load build context
+#11 transferring context: 2.96kB done
+#11 DONE 0.0s
+
+#12 [frontend 1/3] FROM docker.io/library/nginx:1.27-alpine@sha256:65645c7bb6a0661892a8b03b89d0743208a18dd2f3f17a54ef4b76fb8e2f2a10
+#12 resolve docker.io/library/nginx:1.27-alpine@sha256:65645c7bb6a0661892a8b03b89d0743208a18dd2f3f17a54ef4b76fb8e2f2a10 done
+#12 sha256:39c2ddfd6010082a4a646e7ca44e95aca9bf3eaebc00f17f7ccc2954004f2a7d 15.52MB / 15.52MB 0.2s done
+#12 sha256:34a64644b756511a2e217f0508e11d1a572085d66cd6dc9a555a082ad49a3102 1.40kB / 1.40kB 0.1s done
+#12 sha256:197eb75867ef4fcecd4724f17b0972ab0489436860a594a9445f8eaff8155053 1.21kB / 1.21kB 0.1s done
+#12 sha256:81bd8ed7ec6789b0cb7f1b47ee731c522f6dba83201ec73cd6bca1350f582948 402B / 402B 0.2s done
+#12 sha256:d7e5070240863957ebb0b5a44a5729963c3462666baa2947d00628cb5f2d5773 955B / 955B 0.1s done
+#12 sha256:b464cfdf2a6319875aeb27359ec549790ce14d8214fcb16ef915e4530e5ed235 629B / 629B 0.1s done
+#12 sha256:61ca4f733c802afd9e05a32f0de0361b6d713b8b53292dc15fb093229f648674 1.79MB / 1.79MB 0.1s done
+#12 sha256:f18232174bc91741fdf3da96d85011092101a032a93a388b79e99e69c2d5c870 3.64MB / 3.64MB 0.1s done
+#12 extracting sha256:f18232174bc91741fdf3da96d85011092101a032a93a388b79e99e69c2d5c870 0.1s done
+#12 extracting sha256:61ca4f733c802afd9e05a32f0de0361b6d713b8b53292dc15fb093229f648674 0.1s done
+#12 DONE 0.6s
+
+#13 [backend 1/5] FROM docker.io/library/python:3.12-slim@sha256:5e2bdb1b0d542d5039cffb8181c65930093949194a65c365dfb1b0fe13a4fa5b
+#13 resolve docker.io/library/python:3.12-slim@sha256:5e2bdb1b0d542d5039cffb8181c65930093949194a65c365dfb1b0fe13a4fa5b done
+#13 sha256:05e0eee5572e9c9f50408a2132590133b830a668a1cf2ff2b150f19c57707e2b 248B / 248B 0.1s done
+#13 sha256:2dc99d2d0a39fce31e37615eb4c932e16dcc4c2b0ce9993714280081b5dbe085 12.12MB / 12.12MB 0.2s done
+#13 sha256:37fb86c2a767b88d500c6872195f88078f64765fe0d2f9cc375cc2efbd4c0a41 29.86MB / 29.86MB 0.3s done
+#13 sha256:68bced9e0afa4479df17c3646e27c7c7e9ce9ba70c0e6c73b6826487b89037d9 1.29MB / 1.29MB 0.2s done
+#13 extracting sha256:37fb86c2a767b88d500c6872195f88078f64765fe0d2f9cc375cc2efbd4c0a41
+#13 extracting sha256:37fb86c2a767b88d500c6872195f88078f64765fe0d2f9cc375cc2efbd4c0a41 0.5s done
+#13 DONE 0.9s
+
+#12 [frontend 1/3] FROM docker.io/library/nginx:1.27-alpine@sha256:65645c7bb6a0661892a8b03b89d0743208a18dd2f3f17a54ef4b76fb8e2f2a10
+#12 extracting sha256:b464cfdf2a6319875aeb27359ec549790ce14d8214fcb16ef915e4530e5ed235 done
+#12 extracting sha256:d7e5070240863957ebb0b5a44a5729963c3462666baa2947d00628cb5f2d5773 done
+#12 extracting sha256:81bd8ed7ec6789b0cb7f1b47ee731c522f6dba83201ec73cd6bca1350f582948 done
+#12 extracting sha256:197eb75867ef4fcecd4724f17b0972ab0489436860a594a9445f8eaff8155053 done
+#12 extracting sha256:34a64644b756511a2e217f0508e11d1a572085d66cd6dc9a555a082ad49a3102 done
+#12 extracting sha256:39c2ddfd6010082a4a646e7ca44e95aca9bf3eaebc00f17f7ccc2954004f2a7d
+#12 extracting sha256:39c2ddfd6010082a4a646e7ca44e95aca9bf3eaebc00f17f7ccc2954004f2a7d 0.3s done
+#12 DONE 1.0s
+
+#13 [backend 1/5] FROM docker.io/library/python:3.12-slim@sha256:5e2bdb1b0d542d5039cffb8181c65930093949194a65c365dfb1b0fe13a4fa5b
+#13 extracting sha256:68bced9e0afa4479df17c3646e27c7c7e9ce9ba70c0e6c73b6826487b89037d9 0.0s done
+#13 extracting sha256:2dc99d2d0a39fce31e37615eb4c932e16dcc4c2b0ce9993714280081b5dbe085
+#13 extracting sha256:2dc99d2d0a39fce31e37615eb4c932e16dcc4c2b0ce9993714280081b5dbe085 0.3s done
+#13 DONE 1.2s
+
+#14 [frontend 2/3] COPY index.html /usr/share/nginx/html/index.html
+#14 ...
+
+#13 [backend 1/5] FROM docker.io/library/python:3.12-slim@sha256:5e2bdb1b0d542d5039cffb8181c65930093949194a65c365dfb1b0fe13a4fa5b
+#13 extracting sha256:05e0eee5572e9c9f50408a2132590133b830a668a1cf2ff2b150f19c57707e2b 0.0s done
+#13 DONE 1.2s
+
+#15 [backend 2/5] WORKDIR /app
+#15 ...
+
+#14 [frontend 2/3] COPY index.html /usr/share/nginx/html/index.html
+#14 DONE 1.2s
+
+#15 [backend 2/5] WORKDIR /app
+#15 DONE 1.0s
+
+#16 [frontend 3/3] COPY nginx.conf /etc/nginx/conf.d/default.conf
+#16 DONE 0.1s
+
+#17 [backend 3/5] COPY requirements.txt .
+#17 DONE 0.0s
+
+#18 [frontend] exporting to image
+#18 exporting layers 0.0s done
+#18 exporting manifest sha256:65a9004aac0ac9b39c1af4684ee50ea191eda22b8942c6dd30db873ccadfcc8b done
+#18 exporting config sha256:a115b7023cdf75ce7c2985b31bda6cc6135518a50eee25bf4952bd886b5ef15e done
+#18 exporting attestation manifest sha256:b01ba456bb6d7c97b88d14ab0e0a3ca49e5828ab5ed4a6a9f92d7f1277924772 done
+#18 exporting manifest list sha256:231f4c4791f04205cf865f606d6890024b2ed7befca342bde271a943e0b24a46
+#18 exporting manifest list sha256:231f4c4791f04205cf865f606d6890024b2ed7befca342bde271a943e0b24a46 done
+#18 naming to docker.io/library/aci606-docker-rescue-frontend:latest done
+#18 unpacking to docker.io/library/aci606-docker-rescue-frontend:latest 0.0s done
+#18 DONE 0.1s
+
+#19 [frontend] resolving provenance for metadata file
+#19 DONE 0.0s
+
+#20 [backend 4/5] RUN pip install --no-cache-dir -r requirements.txt
+#20 1.197 Collecting fastapi==0.115.5 (from -r requirements.txt (line 1))
+#20 1.232   Downloading fastapi-0.115.5-py3-none-any.whl.metadata (27 kB)
+#20 1.258 Collecting uvicorn==0.32.1 (from uvicorn[standard]==0.32.1->-r requirements.txt (line 2))
+#20 1.268   Downloading uvicorn-0.32.1-py3-none-any.whl.metadata (6.6 kB)
+#20 1.473 Collecting SQLAlchemy==2.0.36 (from -r requirements.txt (line 3))
+#20 1.482   Downloading SQLAlchemy-2.0.36-cp312-cp312-manylinux_2_17_x86_64.manylinux2014_x86_64.whl.metadata (9.7 kB)
+#20 1.511 Collecting starlette<0.42.0,>=0.40.0 (from fastapi==0.115.5->-r requirements.txt (line 1))
+#20 1.520   Downloading starlette-0.41.3-py3-none-any.whl.metadata (6.0 kB)
+#20 1.605 Collecting pydantic!=1.8,!=1.8.1,!=2.0.0,!=2.0.1,!=2.1.0,<3.0.0,>=1.7.4 (from fastapi==0.115.5->-r requirements.txt (line 1))
+#20 1.615   Downloading pydantic-2.14.4-py3-none-any.whl.metadata (143 kB)
+#20 1.642 Collecting typing-extensions>=4.8.0 (from fastapi==0.115.5->-r requirements.txt (line 1))
+#20 1.652   Downloading typing_extensions-4.16.0-py3-none-any.whl.metadata (3.3 kB)
+#20 1.667 Collecting click>=7.0 (from uvicorn==0.32.1->uvicorn[standard]==0.32.1->-r requirements.txt (line 2))
+#20 1.676   Downloading click-8.5.1-py3-none-any.whl.metadata (2.6 kB)
+#20 1.687 Collecting h11>=0.8 (from uvicorn==0.32.1->uvicorn[standard]==0.32.1->-r requirements.txt (line 2))
+#20 1.696   Downloading h11-0.16.0-py3-none-any.whl.metadata (8.3 kB)
+#20 1.779 Collecting greenlet!=0.4.17 (from SQLAlchemy==2.0.36->-r requirements.txt (line 3))
+#20 1.788   Downloading greenlet-3.5.6-cp312-cp312-manylinux_2_24_x86_64.manylinux_2_28_x86_64.whl.metadata (3.8 kB)
+#20 1.814 Collecting httptools>=0.6.3 (from uvicorn[standard]==0.32.1->-r requirements.txt (line 2))
+#20 1.823   Downloading httptools-0.9.0-cp312-cp312-manylinux1_x86_64.manylinux_2_28_x86_64.manylinux_2_5_x86_64.whl.metadata (3.5 kB)
+#20 1.839 Collecting python-dotenv>=0.13 (from uvicorn[standard]==0.32.1->-r requirements.txt (line 2))
+#20 1.848   Downloading python_dotenv-1.2.4-py3-none-any.whl.metadata (29 kB)
+#20 1.872 Collecting pyyaml>=5.1 (from uvicorn[standard]==0.32.1->-r requirements.txt (line 2))
+#20 1.882   Downloading pyyaml-6.0.3-cp312-cp312-manylinux2014_x86_64.manylinux_2_17_x86_64.manylinux_2_28_x86_64.whl.metadata (2.4 kB)
+#20 1.911 Collecting uvloop!=0.15.0,!=0.15.1,>=0.14.0 (from uvicorn[standard]==0.32.1->-r requirements.txt (line 2))
+#20 1.920   Downloading uvloop-0.23.0-cp312-cp312-manylinux2014_x86_64.manylinux_2_17_x86_64.manylinux_2_28_x86_64.whl.metadata (5.1 kB)
+#20 1.981 Collecting watchfiles>=0.13 (from uvicorn[standard]==0.32.1->-r requirements.txt (line 2))
+#20 1.992   Downloading watchfiles-1.3.0-cp310-abi3-manylinux_2_17_x86_64.manylinux2014_x86_64.whl.metadata (4.9 kB)
+#20 2.064 Collecting websockets>=10.4 (from uvicorn[standard]==0.32.1->-r requirements.txt (line 2))
+#20 2.074   Downloading websockets-17.4-cp312-cp312-manylinux1_x86_64.manylinux_2_28_x86_64.manylinux_2_5_x86_64.whl.metadata (6.3 kB)
+#20 2.086 Collecting annotated-types>=0.6.0 (from pydantic!=1.8,!=1.8.1,!=2.0.0,!=2.0.1,!=2.1.0,<3.0.0,>=1.7.4->fastapi==0.115.5->-r requirements.txt (line 1))
+#20 2.095   Downloading annotated_types-0.8.0-py3-none-any.whl.metadata (15 kB)
+#20 2.507 Collecting pydantic-core==2.50.5 (from pydantic!=1.8,!=1.8.1,!=2.0.0,!=2.0.1,!=2.1.0,<3.0.0,>=1.7.4->fastapi==0.115.5->-r requirements.txt (line 1))
+#20 2.518   Downloading pydantic_core-2.50.5-cp312-cp312-manylinux2014_x86_64.manylinux_2_17_x86_64.whl.metadata (6.6 kB)
+#20 2.532 Collecting typing-inspection>=0.4.4 (from pydantic!=1.8,!=1.8.1,!=2.0.0,!=2.0.1,!=2.1.0,<3.0.0,>=1.7.4->fastapi==0.115.5->-r requirements.txt (line 1))
+#20 2.541   Downloading typing_inspection-0.4.5-py3-none-any.whl.metadata (2.6 kB)
+#20 2.561 Collecting anyio<5,>=3.4.0 (from starlette<0.42.0,>=0.40.0->fastapi==0.115.5->-r requirements.txt (line 1))
+#20 2.570   Downloading anyio-4.16.0-py3-none-any.whl.metadata (4.7 kB)
+#20 2.591 Collecting idna>=2.8 (from anyio<5,>=3.4.0->starlette<0.42.0,>=0.40.0->fastapi==0.115.5->-r requirements.txt (line 1))
+#20 2.600   Downloading idna-3.20-py3-none-any.whl.metadata (7.2 kB)
+#20 2.614 Downloading fastapi-0.115.5-py3-none-any.whl (94 kB)
+#20 2.624 Downloading uvicorn-0.32.1-py3-none-any.whl (63 kB)
+#20 2.635 Downloading SQLAlchemy-2.0.36-cp312-cp312-manylinux_2_17_x86_64.manylinux2014_x86_64.whl (3.2 MB)
+#20 2.670    ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 3.2/3.2 MB 122.9 MB/s eta 0:00:00
+#20 2.679 Downloading click-8.5.1-py3-none-any.whl (126 kB)
+#20 2.689 Downloading greenlet-3.5.6-cp312-cp312-manylinux_2_24_x86_64.manylinux_2_28_x86_64.whl (621 kB)
+#20 2.692    ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 621.4/621.4 kB 464.7 MB/s eta 0:00:00
+#20 2.701 Downloading h11-0.16.0-py3-none-any.whl (37 kB)
+#20 2.712 Downloading httptools-0.9.0-cp312-cp312-manylinux1_x86_64.manylinux_2_28_x86_64.manylinux_2_5_x86_64.whl (552 kB)
+#20 2.714    ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 552.8/552.8 kB 392.1 MB/s eta 0:00:00
+#20 2.723 Downloading pydantic-2.14.4-py3-none-any.whl (494 kB)
+#20 2.735 Downloading pydantic_core-2.50.5-cp312-cp312-manylinux2014_x86_64.manylinux_2_17_x86_64.whl (2.3 MB)
+#20 2.742    ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 2.3/2.3 MB 381.8 MB/s eta 0:00:00
+#20 2.752 Downloading python_dotenv-1.2.4-py3-none-any.whl (23 kB)
+#20 2.761 Downloading pyyaml-6.0.3-cp312-cp312-manylinux2014_x86_64.manylinux_2_17_x86_64.manylinux_2_28_x86_64.whl (807 kB)
+#20 2.763    ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 807.9/807.9 kB 625.3 MB/s eta 0:00:00
+#20 2.773 Downloading starlette-0.41.3-py3-none-any.whl (73 kB)
+#20 2.782 Downloading typing_extensions-4.16.0-py3-none-any.whl (45 kB)
+#20 2.792 Downloading uvloop-0.23.0-cp312-cp312-manylinux2014_x86_64.manylinux_2_17_x86_64.manylinux_2_28_x86_64.whl (4.5 MB)
+#20 2.805    ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 4.5/4.5 MB 368.6 MB/s eta 0:00:00
+#20 2.815 Downloading watchfiles-1.3.0-cp310-abi3-manylinux_2_17_x86_64.manylinux2014_x86_64.whl (458 kB)
+#20 2.826 Downloading websockets-17.4-cp312-cp312-manylinux1_x86_64.manylinux_2_28_x86_64.manylinux_2_5_x86_64.whl (226 kB)
+#20 2.837 Downloading annotated_types-0.8.0-py3-none-any.whl (13 kB)
+#20 2.846 Downloading anyio-4.16.0-py3-none-any.whl (134 kB)
+#20 2.857 Downloading typing_inspection-0.4.5-py3-none-any.whl (14 kB)
+#20 2.868 Downloading idna-3.20-py3-none-any.whl (69 kB)
+#20 2.914 Installing collected packages: websockets, uvloop, typing-extensions, pyyaml, python-dotenv, idna, httptools, h11, greenlet, click, annotated-types, uvicorn, typing-inspection, SQLAlchemy, pydantic-core, anyio, watchfiles, starlette, pydantic, fastapi
+#20 4.446 Successfully installed SQLAlchemy-2.0.36 annotated-types-0.8.0 anyio-4.16.0 click-8.5.1 fastapi-0.115.5 greenlet-3.5.6 h11-0.16.0 httptools-0.9.0 idna-3.20 pydantic-2.14.4 pydantic-core-2.50.5 python-dotenv-1.2.4 pyyaml-6.0.3 starlette-0.41.3 typing-extensions-4.16.0 typing-inspection-0.4.5 uvicorn-0.32.1 uvloop-0.23.0 watchfiles-1.3.0 websockets-17.4
+#20 4.446 WARNING: Running pip as the 'root' user can result in broken permissions and conflicting behaviour with the system package manager, possibly rendering your system unusable. It is recommended to use a virtual environment instead: https://pip.pypa.io/warnings/venv. Use the --root-user-action option if you know what you are doing and want to suppress this warning.
+#20 4.504 
+#20 4.504 [notice] A new release of pip is available: 25.0.1 -> 26.3
+#20 4.504 [notice] To update, run: pip install --upgrade pip
+#20 DONE 4.7s
+
+#21 [backend 5/5] COPY main.py .
+#21 DONE 0.0s
+
+#22 [backend] exporting to image
+#22 exporting layers 2.0s done
+#22 exporting manifest sha256:b77192e36eedeb42977b7582c33549a0a54db4e2af7b8abb55d56fc7cf52232e done
+#22 exporting config sha256:41a0eb9b09a9e3f9618301158742814fe12e09d511f634ac0dfb757b314c4139 done
+#22 exporting attestation manifest sha256:22572793b0f84f9f0416a6eb47fb9cc4a502731e85a7c3e860fd29351d6eed58 done
+#22 exporting manifest list sha256:adef1ebfef91b07d4e9bddeddc7d285a4aaba28d6472b6ece26a181a1e3fa1b3 done
+#22 naming to docker.io/library/aci606-docker-rescue-backend:latest done
+#22 unpacking to docker.io/library/aci606-docker-rescue-backend:latest
+#22 unpacking to docker.io/library/aci606-docker-rescue-backend:latest 0.3s done
+#22 DONE 2.3s
+
+#23 [backend] resolving provenance for metadata file
+#23 DONE 0.0s
+ Image aci606-docker-rescue-backend Built 
+ Image aci606-docker-rescue-frontend Built 
+ Network aci606-docker-rescue_default Creating 
+ Network aci606-docker-rescue_default Created 
+ Container aci606-docker-rescue-db-1 Creating 
+ Container aci606-docker-rescue-db-1 Created 
+ Container aci606-docker-rescue-backend-1 Creating 
+ Container aci606-docker-rescue-backend-1 Created 
+ Container aci606-docker-rescue-frontend-1 Creating 
+ Container aci606-docker-rescue-frontend-1 Created 
+ Container aci606-docker-rescue-db-1 Starting 
+ Container aci606-docker-rescue-db-1 Started 
+ Container aci606-docker-rescue-backend-1 Starting 
+ Container aci606-docker-rescue-backend-1 Started 
+ Container aci606-docker-rescue-frontend-1 Starting 
+ Container aci606-docker-rescue-frontend-1 Started 
+ Image aci606-docker-rescue-frontend Building 
+ Image aci606-docker-rescue-backend Building 
+#1 [internal] load local bake definitions
+#1 reading from stdin 1.15kB done
+#1 DONE 0.0s
+
+#2 [backend internal] load build definition from Dockerfile
+#2 transferring dockerfile: 243B done
+#2 DONE 0.0s
+
+#3 [frontend internal] load build definition from Dockerfile
+#3 transferring dockerfile: 168B done
+#3 DONE 0.0s
+
+#4 [frontend internal] load metadata for docker.io/library/nginx:1.27-alpine
+#4 DONE 0.1s
+
+#5 [backend internal] load metadata for docker.io/library/python:3.12-slim
+#5 DONE 0.1s
+
+#6 [frontend internal] load .dockerignore
+#6 transferring context: 2B done
+#6 DONE 0.0s
+
+#7 [frontend internal] load build context
+#7 transferring context: 62B done
+#7 DONE 0.0s
+
+#8 [backend internal] load .dockerignore
+#8 transferring context: 2B done
+#8 DONE 0.0s
+
+#9 [backend internal] load build context
+#9 transferring context: 64B done
+#9 DONE 0.0s
+
+#10 [frontend 1/3] FROM docker.io/library/nginx:1.27-alpine@sha256:65645c7bb6a0661892a8b03b89d0743208a18dd2f3f17a54ef4b76fb8e2f2a10
+#10 resolve docker.io/library/nginx:1.27-alpine@sha256:65645c7bb6a0661892a8b03b89d0743208a18dd2f3f17a54ef4b76fb8e2f2a10 0.0s done
+#10 DONE 0.0s
+
+#11 [frontend 2/3] COPY index.html /usr/share/nginx/html/index.html
+#11 CACHED
+
+#12 [frontend 3/3] COPY nginx.conf /etc/nginx/conf.d/default.conf
+#12 CACHED
+
+#13 [backend 1/5] FROM docker.io/library/python:3.12-slim@sha256:5e2bdb1b0d542d5039cffb8181c65930093949194a65c365dfb1b0fe13a4fa5b
+#13 resolve docker.io/library/python:3.12-slim@sha256:5e2bdb1b0d542d5039cffb8181c65930093949194a65c365dfb1b0fe13a4fa5b done
+#13 DONE 0.0s
+
+#14 [backend 3/5] COPY requirements.txt .
+#14 CACHED
+
+#15 [backend 2/5] WORKDIR /app
+#15 CACHED
+
+#16 [backend 4/5] RUN pip install --no-cache-dir -r requirements.txt
+#16 CACHED
+
+#17 [backend 5/5] COPY main.py .
+#17 CACHED
+
+#18 [frontend] exporting to image
+#18 exporting layers done
+#18 exporting manifest sha256:65a9004aac0ac9b39c1af4684ee50ea191eda22b8942c6dd30db873ccadfcc8b done
+#18 exporting config sha256:a115b7023cdf75ce7c2985b31bda6cc6135518a50eee25bf4952bd886b5ef15e done
+#18 exporting attestation manifest sha256:1820ce5a7a6619f03cdf34c82ba9bf726c5bf445025700c1534a1f9211eaaaa6 done
+#18 exporting manifest list sha256:ebf377a2f84124a36c9becc1fa70695a97bf01075aee88d826023ab2dc990f5a done
+#18 naming to docker.io/library/aci606-docker-rescue-frontend:latest done
+#18 unpacking to docker.io/library/aci606-docker-rescue-frontend:latest done
+#18 DONE 0.0s
+
+#19 [backend] exporting to image
+#19 exporting layers done
+#19 exporting manifest sha256:58c8a3670e6a83cb9a389f7c3a32f84a987d0b74d711775a66b35cf28ad0dc4d done
+#19 exporting config sha256:87feaada3bf6b3d5e46d8399f0a765a7d4c8a24c543fd228ccc2ec920e34f37e done
+#19 exporting attestation manifest sha256:cfde7134ad248f9c78a3680a44987f236cc9d2ce728b1639e8f17796514d1211 done
+#19 exporting manifest list sha256:9da3ebae17e4002655e63a0427cffc7fe397eb8619bfde2274d2de1183f16eb7 done
+#19 naming to docker.io/library/aci606-docker-rescue-backend:latest done
+#19 unpacking to docker.io/library/aci606-docker-rescue-backend:latest done
+#19 DONE 0.0s
+
+#20 [frontend] resolving provenance for metadata file
+#20 DONE 0.0s
+
+#21 [backend] resolving provenance for metadata file
+#21 DONE 0.0s
+ Image aci606-docker-rescue-backend Built 
+ Image aci606-docker-rescue-frontend Built 
+ Container aci606-docker-rescue-db-1 Running 
+ Container aci606-docker-rescue-backend-1 Recreate 
+ Container aci606-docker-rescue-backend-1 Recreated 
+ Container aci606-docker-rescue-frontend-1 Recreate 
+ Container aci606-docker-rescue-frontend-1 Recreated 
+ Container aci606-docker-rescue-backend-1 Starting 
+ Container aci606-docker-rescue-backend-1 Started 
+ Container aci606-docker-rescue-frontend-1 Starting 
+ Container aci606-docker-rescue-frontend-1 Started 
+ Image aci606-docker-rescue-backend Building 
+ Image aci606-docker-rescue-frontend Building 
+#1 [internal] load local bake definitions
+#1 reading from stdin 1.15kB done
+#1 DONE 0.0s
+
+#2 [frontend internal] load build definition from Dockerfile
+#2 transferring dockerfile: 168B done
+#2 DONE 0.0s
+
+#3 [backend internal] load build definition from Dockerfile
+#3 transferring dockerfile: 243B done
+#3 DONE 0.0s
+
+#4 [frontend internal] load metadata for docker.io/library/nginx:1.27-alpine
+#4 DONE 0.1s
+
+#5 [backend internal] load metadata for docker.io/library/python:3.12-slim
+#5 DONE 0.1s
+
+#6 [frontend internal] load .dockerignore
+#6 transferring context: 2B done
+#6 DONE 0.0s
+
+#7 [backend internal] load .dockerignore
+#7 transferring context: 2B done
+#7 DONE 0.0s
+
+#8 [frontend internal] load build context
+#8 transferring context: 62B done
+#8 DONE 0.0s
+
+#9 [backend internal] load build context
+#9 transferring context: 160B done
+#9 DONE 0.0s
+
+#10 [frontend 1/3] FROM docker.io/library/nginx:1.27-alpine@sha256:65645c7bb6a0661892a8b03b89d0743208a18dd2f3f17a54ef4b76fb8e2f2a10
+#10 resolve docker.io/library/nginx:1.27-alpine@sha256:65645c7bb6a0661892a8b03b89d0743208a18dd2f3f17a54ef4b76fb8e2f2a10 done
+#10 DONE 0.0s
+
+#11 [frontend 2/3] COPY index.html /usr/share/nginx/html/index.html
+#11 CACHED
+
+#12 [frontend 3/3] COPY nginx.conf /etc/nginx/conf.d/default.conf
+#12 CACHED
+
+#13 [backend 1/5] FROM docker.io/library/python:3.12-slim@sha256:5e2bdb1b0d542d5039cffb8181c65930093949194a65c365dfb1b0fe13a4fa5b
+#13 resolve docker.io/library/python:3.12-slim@sha256:5e2bdb1b0d542d5039cffb8181c65930093949194a65c365dfb1b0fe13a4fa5b done
+#13 DONE 0.0s
+
+#14 [backend 2/5] WORKDIR /app
+#14 CACHED
+
+#15 [backend 3/5] COPY requirements.txt .
+#15 DONE 0.0s
+
+#16 [frontend] exporting to image
+#16 exporting layers done
+#16 exporting manifest sha256:65a9004aac0ac9b39c1af4684ee50ea191eda22b8942c6dd30db873ccadfcc8b done
+#16 exporting config sha256:a115b7023cdf75ce7c2985b31bda6cc6135518a50eee25bf4952bd886b5ef15e done
+#16 exporting attestation manifest sha256:bc38eafdc1621fc2075265ca120f8702d23e4d40fab45b47d623d6e840183baa done
+#16 exporting manifest list sha256:027b86b141df82575a4dccaa2102226d55cbfb58d32c6d77a8d23d0592fb9af0 done
+#16 naming to docker.io/library/aci606-docker-rescue-frontend:latest done
+#16 unpacking to docker.io/library/aci606-docker-rescue-frontend:latest done
+#16 DONE 0.0s
+
+#17 [frontend] resolving provenance for metadata file
+#17 DONE 0.0s
+
+#18 [backend 4/5] RUN pip install --no-cache-dir -r requirements.txt
+#18 1.065 Collecting fastapi==0.115.5 (from -r requirements.txt (line 1))
+#18 1.096   Downloading fastapi-0.115.5-py3-none-any.whl.metadata (27 kB)
+#18 1.122 Collecting uvicorn==0.32.1 (from uvicorn[standard]==0.32.1->-r requirements.txt (line 2))
+#18 1.129   Downloading uvicorn-0.32.1-py3-none-any.whl.metadata (6.6 kB)
+#18 1.327 Collecting SQLAlchemy==2.0.36 (from -r requirements.txt (line 3))
+#18 1.336   Downloading SQLAlchemy-2.0.36-cp312-cp312-manylinux_2_17_x86_64.manylinux2014_x86_64.whl.metadata (9.7 kB)
+#18 1.378 Collecting psycopg2-binary==2.9.10 (from -r requirements.txt (line 4))
+#18 1.387   Downloading psycopg2_binary-2.9.10-cp312-cp312-manylinux_2_17_x86_64.manylinux2014_x86_64.whl.metadata (4.9 kB)
+#18 1.411 Collecting starlette<0.42.0,>=0.40.0 (from fastapi==0.115.5->-r requirements.txt (line 1))
+#18 1.423   Downloading starlette-0.41.3-py3-none-any.whl.metadata (6.0 kB)
+#18 1.514 Collecting pydantic!=1.8,!=1.8.1,!=2.0.0,!=2.0.1,!=2.1.0,<3.0.0,>=1.7.4 (from fastapi==0.115.5->-r requirements.txt (line 1))
+#18 1.522   Downloading pydantic-2.14.4-py3-none-any.whl.metadata (143 kB)
+#18 1.548 Collecting typing-extensions>=4.8.0 (from fastapi==0.115.5->-r requirements.txt (line 1))
+#18 1.556   Downloading typing_extensions-4.16.0-py3-none-any.whl.metadata (3.3 kB)
+#18 1.572 Collecting click>=7.0 (from uvicorn==0.32.1->uvicorn[standard]==0.32.1->-r requirements.txt (line 2))
+#18 1.580   Downloading click-8.5.1-py3-none-any.whl.metadata (2.6 kB)
+#18 1.590 Collecting h11>=0.8 (from uvicorn==0.32.1->uvicorn[standard]==0.32.1->-r requirements.txt (line 2))
+#18 1.598   Downloading h11-0.16.0-py3-none-any.whl.metadata (8.3 kB)
+#18 1.681 Collecting greenlet!=0.4.17 (from SQLAlchemy==2.0.36->-r requirements.txt (line 3))
+#18 1.690   Downloading greenlet-3.5.6-cp312-cp312-manylinux_2_24_x86_64.manylinux_2_28_x86_64.whl.metadata (3.8 kB)
+#18 1.716 Collecting httptools>=0.6.3 (from uvicorn[standard]==0.32.1->-r requirements.txt (line 2))
+#18 1.724   Downloading httptools-0.9.0-cp312-cp312-manylinux1_x86_64.manylinux_2_28_x86_64.manylinux_2_5_x86_64.whl.metadata (3.5 kB)
+#18 1.738 Collecting python-dotenv>=0.13 (from uvicorn[standard]==0.32.1->-r requirements.txt (line 2))
+#18 1.747   Downloading python_dotenv-1.2.4-py3-none-any.whl.metadata (29 kB)
+#18 1.771 Collecting pyyaml>=5.1 (from uvicorn[standard]==0.32.1->-r requirements.txt (line 2))
+#18 1.780   Downloading pyyaml-6.0.3-cp312-cp312-manylinux2014_x86_64.manylinux_2_17_x86_64.manylinux_2_28_x86_64.whl.metadata (2.4 kB)
+#18 1.806 Collecting uvloop!=0.15.0,!=0.15.1,>=0.14.0 (from uvicorn[standard]==0.32.1->-r requirements.txt (line 2))
+#18 1.814   Downloading uvloop-0.23.0-cp312-cp312-manylinux2014_x86_64.manylinux_2_17_x86_64.manylinux_2_28_x86_64.whl.metadata (5.1 kB)
+#18 1.874 Collecting watchfiles>=0.13 (from uvicorn[standard]==0.32.1->-r requirements.txt (line 2))
+#18 1.883   Downloading watchfiles-1.3.0-cp310-abi3-manylinux_2_17_x86_64.manylinux2014_x86_64.whl.metadata (4.9 kB)
+#18 1.955 Collecting websockets>=10.4 (from uvicorn[standard]==0.32.1->-r requirements.txt (line 2))
+#18 1.962   Downloading websockets-17.4-cp312-cp312-manylinux1_x86_64.manylinux_2_28_x86_64.manylinux_2_5_x86_64.whl.metadata (6.3 kB)
+#18 1.977 Collecting annotated-types>=0.6.0 (from pydantic!=1.8,!=1.8.1,!=2.0.0,!=2.0.1,!=2.1.0,<3.0.0,>=1.7.4->fastapi==0.115.5->-r requirements.txt (line 1))
+#18 1.985   Downloading annotated_types-0.8.0-py3-none-any.whl.metadata (15 kB)
+#18 2.384 Collecting pydantic-core==2.50.5 (from pydantic!=1.8,!=1.8.1,!=2.0.0,!=2.0.1,!=2.1.0,<3.0.0,>=1.7.4->fastapi==0.115.5->-r requirements.txt (line 1))
+#18 2.392   Downloading pydantic_core-2.50.5-cp312-cp312-manylinux2014_x86_64.manylinux_2_17_x86_64.whl.metadata (6.6 kB)
+#18 2.405 Collecting typing-inspection>=0.4.4 (from pydantic!=1.8,!=1.8.1,!=2.0.0,!=2.0.1,!=2.1.0,<3.0.0,>=1.7.4->fastapi==0.115.5->-r requirements.txt (line 1))
+#18 2.415   Downloading typing_inspection-0.4.5-py3-none-any.whl.metadata (2.6 kB)
+#18 2.434 Collecting anyio<5,>=3.4.0 (from starlette<0.42.0,>=0.40.0->fastapi==0.115.5->-r requirements.txt (line 1))
+#18 2.443   Downloading anyio-4.16.0-py3-none-any.whl.metadata (4.7 kB)
+#18 2.465 Collecting idna>=2.8 (from anyio<5,>=3.4.0->starlette<0.42.0,>=0.40.0->fastapi==0.115.5->-r requirements.txt (line 1))
+#18 2.474   Downloading idna-3.20-py3-none-any.whl.metadata (7.2 kB)
+#18 2.488 Downloading fastapi-0.115.5-py3-none-any.whl (94 kB)
+#18 2.496 Downloading uvicorn-0.32.1-py3-none-any.whl (63 kB)
+#18 2.504 Downloading SQLAlchemy-2.0.36-cp312-cp312-manylinux_2_17_x86_64.manylinux2014_x86_64.whl (3.2 MB)
+#18 2.531    ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 3.2/3.2 MB 159.6 MB/s eta 0:00:00
+#18 2.539 Downloading psycopg2_binary-2.9.10-cp312-cp312-manylinux_2_17_x86_64.manylinux2014_x86_64.whl (3.0 MB)
+#18 2.561    ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 3.0/3.0 MB 164.0 MB/s eta 0:00:00
+#18 2.570 Downloading click-8.5.1-py3-none-any.whl (126 kB)
+#18 2.578 Downloading greenlet-3.5.6-cp312-cp312-manylinux_2_24_x86_64.manylinux_2_28_x86_64.whl (621 kB)
+#18 2.579    ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 621.4/621.4 kB 1.0 GB/s eta 0:00:00
+#18 2.587 Downloading h11-0.16.0-py3-none-any.whl (37 kB)
+#18 2.596 Downloading httptools-0.9.0-cp312-cp312-manylinux1_x86_64.manylinux_2_28_x86_64.manylinux_2_5_x86_64.whl (552 kB)
+#18 2.597    ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 552.8/552.8 kB 1.4 GB/s eta 0:00:00
+#18 2.605 Downloading pydantic-2.14.4-py3-none-any.whl (494 kB)
+#18 2.613 Downloading pydantic_core-2.50.5-cp312-cp312-manylinux2014_x86_64.manylinux_2_17_x86_64.whl (2.3 MB)
+#18 2.618    ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 2.3/2.3 MB 805.8 MB/s eta 0:00:00
+#18 2.626 Downloading python_dotenv-1.2.4-py3-none-any.whl (23 kB)
+#18 2.636 Downloading pyyaml-6.0.3-cp312-cp312-manylinux2014_x86_64.manylinux_2_17_x86_64.manylinux_2_28_x86_64.whl (807 kB)
+#18 2.637    ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 807.9/807.9 kB 1.1 GB/s eta 0:00:00
+#18 2.646 Downloading starlette-0.41.3-py3-none-any.whl (73 kB)
+#18 2.654 Downloading typing_extensions-4.16.0-py3-none-any.whl (45 kB)
+#18 2.664 Downloading uvloop-0.23.0-cp312-cp312-manylinux2014_x86_64.manylinux_2_17_x86_64.manylinux_2_28_x86_64.whl (4.5 MB)
+#18 2.671    ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 4.5/4.5 MB 736.7 MB/s eta 0:00:00
+#18 2.679 Downloading watchfiles-1.3.0-cp310-abi3-manylinux_2_17_x86_64.manylinux2014_x86_64.whl (458 kB)
+#18 2.692 Downloading websockets-17.4-cp312-cp312-manylinux1_x86_64.manylinux_2_28_x86_64.manylinux_2_5_x86_64.whl (226 kB)
+#18 2.700 Downloading annotated_types-0.8.0-py3-none-any.whl (13 kB)
+#18 2.708 Downloading anyio-4.16.0-py3-none-any.whl (134 kB)
+#18 2.717 Downloading typing_inspection-0.4.5-py3-none-any.whl (14 kB)
+#18 2.726 Downloading idna-3.20-py3-none-any.whl (69 kB)
+#18 2.775 Installing collected packages: websockets, uvloop, typing-extensions, pyyaml, python-dotenv, psycopg2-binary, idna, httptools, h11, greenlet, click, annotated-types, uvicorn, typing-inspection, SQLAlchemy, pydantic-core, anyio, watchfiles, starlette, pydantic, fastapi
+#18 4.358 Successfully installed SQLAlchemy-2.0.36 annotated-types-0.8.0 anyio-4.16.0 click-8.5.1 fastapi-0.115.5 greenlet-3.5.6 h11-0.16.0 httptools-0.9.0 idna-3.20 psycopg2-binary-2.9.10 pydantic-2.14.4 pydantic-core-2.50.5 python-dotenv-1.2.4 pyyaml-6.0.3 starlette-0.41.3 typing-extensions-4.16.0 typing-inspection-0.4.5 uvicorn-0.32.1 uvloop-0.23.0 watchfiles-1.3.0 websockets-17.4
+#18 4.359 WARNING: Running pip as the 'root' user can result in broken permissions and conflicting behaviour with the system package manager, possibly rendering your system unusable. It is recommended to use a virtual environment instead: https://pip.pypa.io/warnings/venv. Use the --root-user-action option if you know what you are doing and want to suppress this warning.
+#18 4.416 
+#18 4.416 [notice] A new release of pip is available: 25.0.1 -> 26.3
+#18 4.416 [notice] To update, run: pip install --upgrade pip
+#18 DONE 4.6s
+
+#19 [backend 5/5] COPY main.py .
+#19 DONE 0.0s
+
+#20 [backend] exporting to image
+#20 exporting layers 2.2s done
+#20 exporting manifest sha256:8e3b7eca885e9d056d23e8af0a2cd52563e3b05c0f968bc46f9967ef224c8cbd done
+#20 exporting config sha256:79c089ae3ba53989f564369e472b3e390da6a2293a781f075df0add1e645e78d done
+#20 exporting attestation manifest sha256:aa601b938058f3c81260e44a6b3d4124945aaec2541155a4df63d0a9da166e0b done
+#20 exporting manifest list sha256:9dd2003a9320251b573300d3cfeb959a87012281ec2b97e8367f717916df50a0 done
+#20 naming to docker.io/library/aci606-docker-rescue-backend:latest done
+#20 unpacking to docker.io/library/aci606-docker-rescue-backend:latest
+#20 unpacking to docker.io/library/aci606-docker-rescue-backend:latest 0.3s done
+#20 DONE 2.6s
+
+#21 [backend] resolving provenance for metadata file
+#21 DONE 0.0s
+ Image aci606-docker-rescue-backend Built 
+ Image aci606-docker-rescue-frontend Built 
+ Container aci606-docker-rescue-db-1 Running 
+ Container aci606-docker-rescue-backend-1 Recreate 
+ Container aci606-docker-rescue-backend-1 Recreated 
+ Container aci606-docker-rescue-frontend-1 Recreate 
+ Container aci606-docker-rescue-frontend-1 Recreated 
+ Container aci606-docker-rescue-backend-1 Starting 
+ Container aci606-docker-rescue-backend-1 Started 
+ Container aci606-docker-rescue-frontend-1 Starting 
+ Container aci606-docker-rescue-frontend-1 Started 
+ Image aci606-docker-rescue-backend Building 
+ Image aci606-docker-rescue-frontend Building 
+#1 [internal] load local bake definitions
+#1 reading from stdin 1.15kB done
+#1 DONE 0.0s
+
+#2 [backend internal] load build definition from Dockerfile
+#2 transferring dockerfile: 243B done
+#2 DONE 0.0s
+
+#3 [frontend internal] load build definition from Dockerfile
+#3 transferring dockerfile: 168B done
+#3 DONE 0.0s
+
+#4 [frontend internal] load metadata for docker.io/library/nginx:1.27-alpine
+#4 DONE 0.1s
+
+#5 [backend internal] load metadata for docker.io/library/python:3.12-slim
+#5 DONE 0.1s
+
+#6 [frontend internal] load .dockerignore
+#6 transferring context: 2B done
+#6 DONE 0.0s
+
+#7 [frontend internal] load build context
+#7 transferring context: 62B done
+#7 DONE 0.0s
+
+#8 [frontend 1/3] FROM docker.io/library/nginx:1.27-alpine@sha256:65645c7bb6a0661892a8b03b89d0743208a18dd2f3f17a54ef4b76fb8e2f2a10
+#8 resolve docker.io/library/nginx:1.27-alpine@sha256:65645c7bb6a0661892a8b03b89d0743208a18dd2f3f17a54ef4b76fb8e2f2a10 done
+#8 DONE 0.0s
+
+#9 [frontend 2/3] COPY index.html /usr/share/nginx/html/index.html
+#9 CACHED
+
+#10 [frontend 3/3] COPY nginx.conf /etc/nginx/conf.d/default.conf
+#10 CACHED
+
+#11 [backend internal] load .dockerignore
+#11 transferring context: 2B done
+#11 DONE 0.0s
+
+#12 [backend internal] load build context
+#12 transferring context: 64B done
+#12 DONE 0.0s
+
+#13 [backend 1/5] FROM docker.io/library/python:3.12-slim@sha256:5e2bdb1b0d542d5039cffb8181c65930093949194a65c365dfb1b0fe13a4fa5b
+#13 resolve docker.io/library/python:3.12-slim@sha256:5e2bdb1b0d542d5039cffb8181c65930093949194a65c365dfb1b0fe13a4fa5b done
+#13 DONE 0.0s
+
+#14 [backend 3/5] COPY requirements.txt .
+#14 CACHED
+
+#15 [backend 2/5] WORKDIR /app
+#15 CACHED
+
+#16 [backend 4/5] RUN pip install --no-cache-dir -r requirements.txt
+#16 CACHED
+
+#17 [backend 5/5] COPY main.py .
+#17 CACHED
+
+#18 [frontend] exporting to image
+#18 exporting layers done
+#18 exporting manifest sha256:65a9004aac0ac9b39c1af4684ee50ea191eda22b8942c6dd30db873ccadfcc8b done
+#18 exporting config sha256:a115b7023cdf75ce7c2985b31bda6cc6135518a50eee25bf4952bd886b5ef15e done
+#18 exporting attestation manifest sha256:d5878cc2aa58d34eba513dc93639e13e563a5bdbb5916a6c8d28e5ca48572526 done
+#18 exporting manifest list sha256:123ea12d08d8d5d05c4537a87836430083f3bb7f999b4298d639cb577c89e492 done
+#18 naming to docker.io/library/aci606-docker-rescue-frontend:latest done
+#18 unpacking to docker.io/library/aci606-docker-rescue-frontend:latest done
+#18 DONE 0.0s
+
+#19 [backend] exporting to image
+#19 exporting layers done
+#19 exporting manifest sha256:8e3b7eca885e9d056d23e8af0a2cd52563e3b05c0f968bc46f9967ef224c8cbd done
+#19 exporting config sha256:79c089ae3ba53989f564369e472b3e390da6a2293a781f075df0add1e645e78d done
+#19 exporting attestation manifest sha256:2fb785bb60c64373874ff1e379de644997d3104b994f59a9d9726b342f840bf9 done
+#19 exporting manifest list sha256:a6d06649b5bdfdb55daf0977d62289106c07c54b2d84d8efc2ed0788c5b7b9d2 done
+#19 naming to docker.io/library/aci606-docker-rescue-backend:latest done
+#19 unpacking to docker.io/library/aci606-docker-rescue-backend:latest done
+#19 DONE 0.0s
+
+#20 [frontend] resolving provenance for metadata file
+#20 DONE 0.0s
+
+#21 [backend] resolving provenance for metadata file
+#21 DONE 0.0s
+ Image aci606-docker-rescue-backend Built 
+ Image aci606-docker-rescue-frontend Built 
+ Container aci606-docker-rescue-db-1 Running 
+ Container aci606-docker-rescue-backend-1 Recreate 
+ Container aci606-docker-rescue-backend-1 Recreated 
+ Container aci606-docker-rescue-frontend-1 Recreate 
+ Container aci606-docker-rescue-frontend-1 Recreated 
+ Container aci606-docker-rescue-backend-1 Starting 
+ Container aci606-docker-rescue-backend-1 Started 
+ Container aci606-docker-rescue-frontend-1 Starting 
+ Container aci606-docker-rescue-frontend-1 Started 
+ Image aci606-docker-rescue-frontend Building 
+ Image aci606-docker-rescue-backend Building 
+#1 [internal] load local bake definitions
+#1 reading from stdin 1.15kB done
+#1 DONE 0.0s
+
+#2 [backend internal] load build definition from Dockerfile
+#2 transferring dockerfile: 243B done
+#2 DONE 0.0s
+
+#3 [frontend internal] load build definition from Dockerfile
+#3 transferring dockerfile: 168B done
+#3 DONE 0.0s
+
+#4 [frontend internal] load metadata for docker.io/library/nginx:1.27-alpine
+#4 DONE 0.1s
+
+#5 [backend internal] load metadata for docker.io/library/python:3.12-slim
+#5 DONE 0.1s
+
+#6 [frontend internal] load .dockerignore
+#6 transferring context: 2B done
+#6 DONE 0.0s
+
+#7 [frontend internal] load build context
+#7 transferring context: 62B done
+#7 DONE 0.0s
+
+#8 [backend internal] load .dockerignore
+#8 transferring context: 2B done
+#8 DONE 0.0s
+
+#9 [frontend 1/3] FROM docker.io/library/nginx:1.27-alpine@sha256:65645c7bb6a0661892a8b03b89d0743208a18dd2f3f17a54ef4b76fb8e2f2a10
+#9 resolve docker.io/library/nginx:1.27-alpine@sha256:65645c7bb6a0661892a8b03b89d0743208a18dd2f3f17a54ef4b76fb8e2f2a10 done
+#9 DONE 0.0s
+
+#10 [frontend 2/3] COPY index.html /usr/share/nginx/html/index.html
+#10 CACHED
+
+#11 [frontend 3/3] COPY nginx.conf /etc/nginx/conf.d/default.conf
+#11 CACHED
+
+#12 [backend internal] load build context
+#12 transferring context: 64B done
+#12 DONE 0.0s
+
+#13 [backend 1/5] FROM docker.io/library/python:3.12-slim@sha256:5e2bdb1b0d542d5039cffb8181c65930093949194a65c365dfb1b0fe13a4fa5b
+#13 resolve docker.io/library/python:3.12-slim@sha256:5e2bdb1b0d542d5039cffb8181c65930093949194a65c365dfb1b0fe13a4fa5b done
+#13 DONE 0.0s
+
+#14 [backend 3/5] COPY requirements.txt .
+#14 CACHED
+
+#15 [backend 4/5] RUN pip install --no-cache-dir -r requirements.txt
+#15 CACHED
+
+#16 [backend 2/5] WORKDIR /app
+#16 CACHED
+
+#17 [backend 5/5] COPY main.py .
+#17 CACHED
+
+#18 [frontend] exporting to image
+#18 exporting layers done
+#18 exporting manifest sha256:65a9004aac0ac9b39c1af4684ee50ea191eda22b8942c6dd30db873ccadfcc8b done
+#18 exporting config sha256:a115b7023cdf75ce7c2985b31bda6cc6135518a50eee25bf4952bd886b5ef15e done
+#18 exporting attestation manifest sha256:79b502046aef22f7513c5c8439d0111ba39e8efea3b7ea2d1b835ecc690c648c done
+#18 exporting manifest list sha256:0b5272b36ff765cc99ed202c3f203dd6a86016bc0779f6c7826e43ec6f0bb6e3 done
+#18 naming to docker.io/library/aci606-docker-rescue-frontend:latest done
+#18 unpacking to docker.io/library/aci606-docker-rescue-frontend:latest done
+#18 DONE 0.0s
+
+#19 [backend] exporting to image
+#19 exporting layers done
+#19 exporting manifest sha256:8e3b7eca885e9d056d23e8af0a2cd52563e3b05c0f968bc46f9967ef224c8cbd done
+#19 exporting config sha256:79c089ae3ba53989f564369e472b3e390da6a2293a781f075df0add1e645e78d done
+#19 exporting attestation manifest sha256:df2d9553aee9fc76a517500f7f2c5e10d71762261b387ffd6c3c75f9d7137ab3 done
+#19 exporting manifest list sha256:c1b8e6f11e415bd7e03566b509a9ca81460ebb384bd570b22de96d8cf002c5b4 done
+#19 naming to docker.io/library/aci606-docker-rescue-backend:latest done
+#19 unpacking to docker.io/library/aci606-docker-rescue-backend:latest done
+#19 DONE 0.0s
+
+#20 [backend] resolving provenance for metadata file
+#20 DONE 0.0s
+
+#21 [frontend] resolving provenance for metadata file
+#21 DONE 0.0s
+ Image aci606-docker-rescue-backend Built 
+ Image aci606-docker-rescue-frontend Built 
+ Container aci606-docker-rescue-db-1 Running 
+ Container aci606-docker-rescue-backend-1 Recreate 
+ Container aci606-docker-rescue-backend-1 Recreated 
+ Container aci606-docker-rescue-frontend-1 Recreate 
+ Container aci606-docker-rescue-frontend-1 Recreated 
+ Container aci606-docker-rescue-backend-1 Starting 
+ Container aci606-docker-rescue-backend-1 Started 
+ Container aci606-docker-rescue-frontend-1 Starting 
+ Container aci606-docker-rescue-frontend-1 Started 
+ Image aci606-docker-rescue-frontend Building 
+ Image aci606-docker-rescue-backend Building 
+#1 [internal] load local bake definitions
+#1 reading from stdin 1.15kB done
+#1 DONE 0.0s
+
+#2 [frontend internal] load build definition from Dockerfile
+#2 transferring dockerfile: 168B done
+#2 DONE 0.0s
+
+#3 [backend internal] load build definition from Dockerfile
+#3 transferring dockerfile: 243B done
+#3 DONE 0.0s
+
+#4 [frontend internal] load metadata for docker.io/library/nginx:1.27-alpine
+#4 DONE 0.1s
+
+#5 [backend internal] load metadata for docker.io/library/python:3.12-slim
+#5 DONE 0.2s
+
+#6 [frontend internal] load .dockerignore
+#6 transferring context: 2B done
+#6 DONE 0.0s
+
+#7 [frontend internal] load build context
+#7 transferring context: 62B done
+#7 DONE 0.0s
+
+#8 [frontend 1/3] FROM docker.io/library/nginx:1.27-alpine@sha256:65645c7bb6a0661892a8b03b89d0743208a18dd2f3f17a54ef4b76fb8e2f2a10
+#8 resolve docker.io/library/nginx:1.27-alpine@sha256:65645c7bb6a0661892a8b03b89d0743208a18dd2f3f17a54ef4b76fb8e2f2a10 done
+#8 DONE 0.0s
+
+#9 [frontend 2/3] COPY index.html /usr/share/nginx/html/index.html
+#9 CACHED
+
+#10 [frontend 3/3] COPY nginx.conf /etc/nginx/conf.d/default.conf
+#10 CACHED
+
+#11 [backend internal] load .dockerignore
+#11 transferring context: 2B done
+#11 DONE 0.0s
+
+#12 [backend internal] load build context
+#12 transferring context: 64B done
+#12 DONE 0.0s
+
+#13 [backend 1/5] FROM docker.io/library/python:3.12-slim@sha256:5e2bdb1b0d542d5039cffb8181c65930093949194a65c365dfb1b0fe13a4fa5b
+#13 resolve docker.io/library/python:3.12-slim@sha256:5e2bdb1b0d542d5039cffb8181c65930093949194a65c365dfb1b0fe13a4fa5b done
+#13 DONE 0.0s
+
+#14 [backend 2/5] WORKDIR /app
+#14 CACHED
+
+#15 [backend 3/5] COPY requirements.txt .
+#15 CACHED
+
+#16 [backend 4/5] RUN pip install --no-cache-dir -r requirements.txt
+#16 CACHED
+
+#17 [backend 5/5] COPY main.py .
+#17 CACHED
+
+#18 [frontend] exporting to image
+#18 exporting layers done
+#18 exporting manifest sha256:65a9004aac0ac9b39c1af4684ee50ea191eda22b8942c6dd30db873ccadfcc8b done
+#18 exporting config sha256:a115b7023cdf75ce7c2985b31bda6cc6135518a50eee25bf4952bd886b5ef15e done
+#18 exporting attestation manifest sha256:d1148a23637d19c63595cc89f0a7173d63b1de46af3999143de41623376bcaf8 done
+#18 exporting manifest list sha256:5c7231836f304419adf001df943f7224d26b5df55fc693f7f48608d07bff68ae done
+#18 naming to docker.io/library/aci606-docker-rescue-frontend:latest done
+#18 unpacking to docker.io/library/aci606-docker-rescue-frontend:latest done
+#18 DONE 0.0s
+
+#19 [backend] exporting to image
+#19 exporting layers done
+#19 exporting manifest sha256:8e3b7eca885e9d056d23e8af0a2cd52563e3b05c0f968bc46f9967ef224c8cbd done
+#19 exporting config sha256:79c089ae3ba53989f564369e472b3e390da6a2293a781f075df0add1e645e78d done
+#19 exporting attestation manifest sha256:c1ad1afceb3235f1c7ef11229c41f35a016b727405cd22a12edf7dac649c4a31 done
+#19 exporting manifest list sha256:b2e282fdd0dc570b1c0d73c2b6c88975bf55193edd47385661118903b4a24020 done
+#19 naming to docker.io/library/aci606-docker-rescue-backend:latest done
+#19 unpacking to docker.io/library/aci606-docker-rescue-backend:latest done
+#19 DONE 0.0s
+
+#20 [frontend] resolving provenance for metadata file
+#20 DONE 0.0s
+
+#21 [backend] resolving provenance for metadata file
+#21 DONE 0.0s
+ Image aci606-docker-rescue-backend Built 
+ Image aci606-docker-rescue-frontend Built 
+ Container aci606-docker-rescue-db-1 Running 
+ Container aci606-docker-rescue-backend-1 Recreate 
+ Container aci606-docker-rescue-backend-1 Recreated 
+ Container aci606-docker-rescue-frontend-1 Recreate 
+ Container aci606-docker-rescue-frontend-1 Recreated 
+ Container aci606-docker-rescue-backend-1 Starting 
+ Container aci606-docker-rescue-backend-1 Started 
+ Container aci606-docker-rescue-frontend-1 Starting 
+ Container aci606-docker-rescue-frontend-1 Started 
+ Image aci606-docker-rescue-frontend Building 
+ Image aci606-docker-rescue-backend Building 
+#1 [internal] load local bake definitions
+#1 reading from stdin 1.15kB done
+#1 DONE 0.0s
+
+#2 [backend internal] load build definition from Dockerfile
+#2 transferring dockerfile: 243B done
+#2 DONE 0.0s
+
+#3 [frontend internal] load build definition from Dockerfile
+#3 transferring dockerfile: 168B done
+#3 DONE 0.0s
+
+#4 [backend internal] load metadata for docker.io/library/python:3.12-slim
+#4 DONE 0.1s
+
+#5 [frontend internal] load metadata for docker.io/library/nginx:1.27-alpine
+#5 DONE 0.1s
+
+#6 [backend internal] load .dockerignore
+#6 transferring context: 2B done
+#6 DONE 0.0s
+
+#7 [backend internal] load build context
+#7 transferring context: 64B done
+#7 DONE 0.0s
+
+#8 [frontend internal] load .dockerignore
+#8 transferring context: 2B done
+#8 DONE 0.0s
+
+#9 [backend 1/5] FROM docker.io/library/python:3.12-slim@sha256:5e2bdb1b0d542d5039cffb8181c65930093949194a65c365dfb1b0fe13a4fa5b
+#9 resolve docker.io/library/python:3.12-slim@sha256:5e2bdb1b0d542d5039cffb8181c65930093949194a65c365dfb1b0fe13a4fa5b done
+#9 DONE 0.0s
+
+#10 [backend 3/5] COPY requirements.txt .
+#10 CACHED
+
+#11 [backend 4/5] RUN pip install --no-cache-dir -r requirements.txt
+#11 CACHED
+
+#12 [backend 2/5] WORKDIR /app
+#12 CACHED
+
+#13 [backend 5/5] COPY main.py .
+#13 CACHED
+
+#14 [frontend internal] load build context
+#14 transferring context: 388B done
+#14 DONE 0.0s
+
+#15 [frontend 1/3] FROM docker.io/library/nginx:1.27-alpine@sha256:65645c7bb6a0661892a8b03b89d0743208a18dd2f3f17a54ef4b76fb8e2f2a10
+#15 resolve docker.io/library/nginx:1.27-alpine@sha256:65645c7bb6a0661892a8b03b89d0743208a18dd2f3f17a54ef4b76fb8e2f2a10 done
+#15 DONE 0.0s
+
+#16 [frontend 2/3] COPY index.html /usr/share/nginx/html/index.html
+#16 CACHED
+
+#17 [frontend 3/3] COPY nginx.conf /etc/nginx/conf.d/default.conf
+#17 DONE 0.0s
+
+#18 [backend] exporting to image
+#18 exporting layers done
+#18 exporting manifest sha256:8e3b7eca885e9d056d23e8af0a2cd52563e3b05c0f968bc46f9967ef224c8cbd done
+#18 exporting config sha256:79c089ae3ba53989f564369e472b3e390da6a2293a781f075df0add1e645e78d done
+#18 exporting attestation manifest sha256:27d50aea8962889f64f4227b4c00d6676c177b8705229855f475409b7f19021b done
+#18 exporting manifest list sha256:8d5200112556d61e5ce1ffd0e2f78d16b53c8e8502396b60d64db4f75ff6c1c0 done
+#18 naming to docker.io/library/aci606-docker-rescue-backend:latest done
+#18 unpacking to docker.io/library/aci606-docker-rescue-backend:latest done
+#18 DONE 0.0s
+
+#19 [backend] resolving provenance for metadata file
+#19 DONE 0.0s
+
+#20 [frontend] exporting to image
+#20 exporting layers 0.0s done
+#20 exporting manifest sha256:ff6f2b8891b3059b6c86c4bdae02a07344bfce8893763615c4e74dae11e67e5a done
+#20 exporting config sha256:7ef952ef75296d9adb75fb487c2bdc3ee74863a2623f90affb931ac814451ce8 done
+#20 exporting attestation manifest sha256:dd3e71aba2f0955dff06726042f286fabf1cf20aa22672f7ff9abe29648a1934 done
+#20 exporting manifest list sha256:d157389875abc1eb7e7caa12f3ca9ecf95f67dcaf99c28a0e79bdeb0a793b6e3 done
+#20 naming to docker.io/library/aci606-docker-rescue-frontend:latest done
+#20 unpacking to docker.io/library/aci606-docker-rescue-frontend:latest 0.0s done
+#20 DONE 0.1s
+
+#21 [frontend] resolving provenance for metadata file
+#21 DONE 0.0s
+ Image aci606-docker-rescue-backend Built 
+ Image aci606-docker-rescue-frontend Built 
+ Container aci606-docker-rescue-db-1 Running 
+ Container aci606-docker-rescue-backend-1 Recreate 
+ Container aci606-docker-rescue-backend-1 Recreated 
+ Container aci606-docker-rescue-frontend-1 Recreate 
+ Container aci606-docker-rescue-frontend-1 Recreated 
+ Container aci606-docker-rescue-backend-1 Starting 
+ Container aci606-docker-rescue-backend-1 Started 
+ Container aci606-docker-rescue-frontend-1 Starting 
+ Container aci606-docker-rescue-frontend-1 Started 
+ Container aci606-docker-rescue-frontend-1 Stopping 
+ Container aci606-docker-rescue-frontend-1 Stopped 
+ Container aci606-docker-rescue-frontend-1 Removing 
+ Container aci606-docker-rescue-frontend-1 Removed 
+ Container aci606-docker-rescue-backend-1 Stopping 
+ Container aci606-docker-rescue-backend-1 Stopped 
+ Container aci606-docker-rescue-backend-1 Removing 
+ Container aci606-docker-rescue-backend-1 Removed 
+ Container aci606-docker-rescue-db-1 Stopping 
+ Container aci606-docker-rescue-db-1 Stopped 
+ Container aci606-docker-rescue-db-1 Removing 
+ Container aci606-docker-rescue-db-1 Removed 
+ Network aci606-docker-rescue_default Removing 
+ Network aci606-docker-rescue_default Removed 
+ Image aci606-docker-rescue-frontend Building 
+ Image aci606-docker-rescue-backend Building 
+#1 [internal] load local bake definitions
+#1 reading from stdin 1.15kB done
+#1 DONE 0.0s
+
+#2 [frontend internal] load build definition from Dockerfile
+#2 transferring dockerfile: 168B done
+#2 DONE 0.0s
+
+#3 [backend internal] load build definition from Dockerfile
+#3 transferring dockerfile: 243B done
+#3 DONE 0.0s
+
+#4 [frontend internal] load metadata for docker.io/library/nginx:1.27-alpine
+#4 DONE 0.1s
+
+#5 [backend internal] load metadata for docker.io/library/python:3.12-slim
+#5 DONE 0.1s
+
+#6 [frontend internal] load .dockerignore
+#6 transferring context: 2B done
+#6 DONE 0.0s
+
+#7 [frontend internal] load build context
+#7 transferring context: 62B done
+#7 DONE 0.0s
+
+#8 [backend internal] load .dockerignore
+#8 transferring context: 2B done
+#8 DONE 0.0s
+
+#9 [backend internal] load build context
+#9 transferring context: 64B done
+#9 DONE 0.0s
+
+#10 [frontend 1/3] FROM docker.io/library/nginx:1.27-alpine@sha256:65645c7bb6a0661892a8b03b89d0743208a18dd2f3f17a54ef4b76fb8e2f2a10
+#10 resolve docker.io/library/nginx:1.27-alpine@sha256:65645c7bb6a0661892a8b03b89d0743208a18dd2f3f17a54ef4b76fb8e2f2a10 done
+#10 DONE 0.0s
+
+#11 [frontend 2/3] COPY index.html /usr/share/nginx/html/index.html
+#11 CACHED
+
+#12 [frontend 3/3] COPY nginx.conf /etc/nginx/conf.d/default.conf
+#12 CACHED
+
+#13 [backend 1/5] FROM docker.io/library/python:3.12-slim@sha256:5e2bdb1b0d542d5039cffb8181c65930093949194a65c365dfb1b0fe13a4fa5b
+#13 resolve docker.io/library/python:3.12-slim@sha256:5e2bdb1b0d542d5039cffb8181c65930093949194a65c365dfb1b0fe13a4fa5b done
+#13 DONE 0.0s
+
+#14 [backend 3/5] COPY requirements.txt .
+#14 CACHED
+
+#15 [backend 2/5] WORKDIR /app
+#15 CACHED
+
+#16 [backend 4/5] RUN pip install --no-cache-dir -r requirements.txt
+#16 CACHED
+
+#17 [backend 5/5] COPY main.py .
+#17 CACHED
+
+#18 [frontend] exporting to image
+#18 exporting layers done
+#18 exporting manifest sha256:ff6f2b8891b3059b6c86c4bdae02a07344bfce8893763615c4e74dae11e67e5a done
+#18 exporting config sha256:7ef952ef75296d9adb75fb487c2bdc3ee74863a2623f90affb931ac814451ce8 done
+#18 exporting attestation manifest sha256:5b6940ecc882feb0fdba64ae9bf78faf9325b116414818f370ccd0d1b6ec30cf done
+#18 exporting manifest list sha256:e84d7eef9265940f0e46fc70089230b76e18395aa3434991b2b25690da74b6d5 done
+#18 naming to docker.io/library/aci606-docker-rescue-frontend:latest done
+#18 unpacking to docker.io/library/aci606-docker-rescue-frontend:latest done
+#18 DONE 0.0s
+
+#19 [backend] exporting to image
+#19 exporting layers done
+#19 exporting manifest sha256:8e3b7eca885e9d056d23e8af0a2cd52563e3b05c0f968bc46f9967ef224c8cbd done
+#19 exporting config sha256:79c089ae3ba53989f564369e472b3e390da6a2293a781f075df0add1e645e78d done
+#19 exporting attestation manifest sha256:565f59b369e5e9082159a799723738d3217b44e84f6805b5be91c86cf36b7682 done
+#19 exporting manifest list sha256:2699ed49b67f6f38d6cb8739b8e92239a321147602fb84c4e7325b2dcd9c4b81 done
+#19 naming to docker.io/library/aci606-docker-rescue-backend:latest done
+#19 unpacking to docker.io/library/aci606-docker-rescue-backend:latest done
+#19 DONE 0.0s
+
+#20 [backend] resolving provenance for metadata file
+#20 DONE 0.0s
+
+#21 [frontend] resolving provenance for metadata file
+#21 DONE 0.0s
+ Image aci606-docker-rescue-frontend Built 
+ Image aci606-docker-rescue-backend Built 
+ Network aci606-docker-rescue_default Creating 
+ Network aci606-docker-rescue_default Created 
+ Container aci606-docker-rescue-db-1 Creating 
+ Container aci606-docker-rescue-db-1 Created 
+ Container aci606-docker-rescue-backend-1 Creating 
+ Container aci606-docker-rescue-backend-1 Created 
+ Container aci606-docker-rescue-frontend-1 Creating 
+ Container aci606-docker-rescue-frontend-1 Created 
+ Container aci606-docker-rescue-db-1 Starting 
+ Container aci606-docker-rescue-db-1 Started 
+ Container aci606-docker-rescue-backend-1 Starting 
+ Container aci606-docker-rescue-backend-1 Started 
+ Container aci606-docker-rescue-frontend-1 Starting 
+ Container aci606-docker-rescue-frontend-1 Started 
+ Container aci606-docker-rescue-frontend-1 Stopping 
+ Container aci606-docker-rescue-frontend-1 Stopped 
+ Container aci606-docker-rescue-frontend-1 Removing 
+ Container aci606-docker-rescue-frontend-1 Removed 
+ Container aci606-docker-rescue-backend-1 Stopping 
+ Container aci606-docker-rescue-backend-1 Stopped 
+ Container aci606-docker-rescue-backend-1 Removing 
+ Container aci606-docker-rescue-backend-1 Removed 
+ Container aci606-docker-rescue-db-1 Stopping 
+ Container aci606-docker-rescue-db-1 Stopped 
+ Container aci606-docker-rescue-db-1 Removing 
+ Container aci606-docker-rescue-db-1 Removed 
+ Network aci606-docker-rescue_default Removing 
+ Network aci606-docker-rescue_default Removed 
+ Image aci606-docker-rescue-frontend Building 
+ Image aci606-docker-rescue-backend Building 
+#1 [internal] load local bake definitions
+#1 reading from stdin 1.15kB done
+#1 DONE 0.0s
+
+#2 [backend internal] load build definition from Dockerfile
+#2 transferring dockerfile: 243B done
+#2 DONE 0.0s
+
+#3 [frontend internal] load build definition from Dockerfile
+#3 transferring dockerfile: 168B done
+#3 DONE 0.0s
+
+#4 [frontend internal] load metadata for docker.io/library/nginx:1.27-alpine
+#4 DONE 0.1s
+
+#5 [backend internal] load metadata for docker.io/library/python:3.12-slim
+#5 DONE 0.1s
+
+#6 [frontend internal] load .dockerignore
+#6 transferring context: 2B done
+#6 DONE 0.0s
+
+#7 [frontend internal] load build context
+#7 transferring context: 62B done
+#7 DONE 0.0s
+
+#8 [backend internal] load .dockerignore
+#8 transferring context: 2B done
+#8 DONE 0.0s
+
+#9 [backend internal] load build context
+#9 transferring context: 64B done
+#9 DONE 0.0s
+
+#10 [frontend 1/3] FROM docker.io/library/nginx:1.27-alpine@sha256:65645c7bb6a0661892a8b03b89d0743208a18dd2f3f17a54ef4b76fb8e2f2a10
+#10 resolve docker.io/library/nginx:1.27-alpine@sha256:65645c7bb6a0661892a8b03b89d0743208a18dd2f3f17a54ef4b76fb8e2f2a10 0.0s done
+#10 DONE 0.0s
+
+#11 [frontend 2/3] COPY index.html /usr/share/nginx/html/index.html
+#11 CACHED
+
+#12 [frontend 3/3] COPY nginx.conf /etc/nginx/conf.d/default.conf
+#12 CACHED
+
+#13 [backend 1/5] FROM docker.io/library/python:3.12-slim@sha256:5e2bdb1b0d542d5039cffb8181c65930093949194a65c365dfb1b0fe13a4fa5b
+#13 resolve docker.io/library/python:3.12-slim@sha256:5e2bdb1b0d542d5039cffb8181c65930093949194a65c365dfb1b0fe13a4fa5b done
+#13 DONE 0.0s
+
+#14 [backend 4/5] RUN pip install --no-cache-dir -r requirements.txt
+#14 CACHED
+
+#15 [backend 2/5] WORKDIR /app
+#15 CACHED
+
+#16 [backend 3/5] COPY requirements.txt .
+#16 CACHED
+
+#17 [backend 5/5] COPY main.py .
+#17 CACHED
+
+#18 [frontend] exporting to image
+#18 exporting layers done
+#18 exporting manifest sha256:ff6f2b8891b3059b6c86c4bdae02a07344bfce8893763615c4e74dae11e67e5a done
+#18 exporting config sha256:7ef952ef75296d9adb75fb487c2bdc3ee74863a2623f90affb931ac814451ce8 done
+#18 exporting attestation manifest sha256:c7f64a58eb945182d94e3db2284a533a4017f97df2f1d540a3e61307d6cfa106 done
+#18 exporting manifest list sha256:1c7cef9b7f4e52436b16da603eb47d0ae1052a8b80c577d34b915573d4036442 done
+#18 naming to docker.io/library/aci606-docker-rescue-frontend:latest done
+#18 unpacking to docker.io/library/aci606-docker-rescue-frontend:latest done
+#18 DONE 0.0s
+
+#19 [backend] exporting to image
+#19 exporting layers done
+#19 exporting manifest sha256:8e3b7eca885e9d056d23e8af0a2cd52563e3b05c0f968bc46f9967ef224c8cbd done
+#19 exporting config sha256:79c089ae3ba53989f564369e472b3e390da6a2293a781f075df0add1e645e78d done
+#19 exporting attestation manifest sha256:54408abbc5fa0056b3604e7275e1feda757c4f5db28a15f9668280728b91662c done
+#19 exporting manifest list sha256:1e43b6e5cd2c9726dc7dc3d12a53883cd39e39ae2853da41f21616b8c633a84c done
+#19 naming to docker.io/library/aci606-docker-rescue-backend:latest done
+#19 unpacking to docker.io/library/aci606-docker-rescue-backend:latest done
+#19 DONE 0.0s
+
+#20 [backend] resolving provenance for metadata file
+#20 DONE 0.0s
+
+#21 [frontend] resolving provenance for metadata file
+#21 DONE 0.0s
+ Image aci606-docker-rescue-backend Built 
+ Image aci606-docker-rescue-frontend Built 
+ Network aci606-docker-rescue_default Creating 
+ Network aci606-docker-rescue_default Created 
+ Container aci606-docker-rescue-db-1 Creating 
+ Container aci606-docker-rescue-db-1 Created 
+ Container aci606-docker-rescue-backend-1 Creating 
+ Container aci606-docker-rescue-backend-1 Created 
+ Container aci606-docker-rescue-frontend-1 Creating 
+ Container aci606-docker-rescue-frontend-1 Created 
+ Container aci606-docker-rescue-db-1 Starting 
+ Container aci606-docker-rescue-db-1 Started 
+ Container aci606-docker-rescue-db-1 Waiting 
+ Container aci606-docker-rescue-db-1 Healthy 
+ Container aci606-docker-rescue-backend-1 Starting 
+ Container aci606-docker-rescue-backend-1 Started 
+ Container aci606-docker-rescue-frontend-1 Starting 
+ Container aci606-docker-rescue-frontend-1 Started 
+ Image aci606-docker-rescue-backend Building 
+ Image aci606-docker-rescue-frontend Building 
+#1 [internal] load local bake definitions
+#1 reading from stdin 1.15kB done
+#1 DONE 0.0s
+
+#2 [backend internal] load build definition from Dockerfile
+#2 transferring dockerfile: 243B done
+#2 DONE 0.0s
+
+#3 [frontend internal] load build definition from Dockerfile
+#3 transferring dockerfile: 168B done
+#3 DONE 0.0s
+
+#4 [frontend internal] load metadata for docker.io/library/nginx:1.27-alpine
+#4 DONE 0.1s
+
+#5 [backend internal] load metadata for docker.io/library/python:3.12-slim
+#5 DONE 0.1s
+
+#6 [frontend internal] load .dockerignore
+#6 transferring context: 2B done
+#6 DONE 0.0s
+
+#7 [frontend internal] load build context
+#7 transferring context: 62B done
+#7 DONE 0.0s
+
+#8 [frontend 1/3] FROM docker.io/library/nginx:1.27-alpine@sha256:65645c7bb6a0661892a8b03b89d0743208a18dd2f3f17a54ef4b76fb8e2f2a10
+#8 resolve docker.io/library/nginx:1.27-alpine@sha256:65645c7bb6a0661892a8b03b89d0743208a18dd2f3f17a54ef4b76fb8e2f2a10 done
+#8 DONE 0.0s
+
+#9 [frontend 2/3] COPY index.html /usr/share/nginx/html/index.html
+#9 CACHED
+
+#10 [frontend 3/3] COPY nginx.conf /etc/nginx/conf.d/default.conf
+#10 CACHED
+
+#11 [backend internal] load .dockerignore
+#11 transferring context: 2B done
+#11 DONE 0.0s
+
+#12 [backend internal] load build context
+#12 transferring context: 64B done
+#12 DONE 0.0s
+
+#13 [backend 1/5] FROM docker.io/library/python:3.12-slim@sha256:5e2bdb1b0d542d5039cffb8181c65930093949194a65c365dfb1b0fe13a4fa5b
+#13 resolve docker.io/library/python:3.12-slim@sha256:5e2bdb1b0d542d5039cffb8181c65930093949194a65c365dfb1b0fe13a4fa5b done
+#13 DONE 0.0s
+
+#14 [backend 4/5] RUN pip install --no-cache-dir -r requirements.txt
+#14 CACHED
+
+#15 [backend 3/5] COPY requirements.txt .
+#15 CACHED
+
+#16 [backend 2/5] WORKDIR /app
+#16 CACHED
+
+#17 [backend 5/5] COPY main.py .
+#17 CACHED
+
+#18 [frontend] exporting to image
+#18 exporting layers done
+#18 exporting manifest sha256:ff6f2b8891b3059b6c86c4bdae02a07344bfce8893763615c4e74dae11e67e5a done
+#18 exporting config sha256:7ef952ef75296d9adb75fb487c2bdc3ee74863a2623f90affb931ac814451ce8 done
+#18 exporting attestation manifest sha256:b8c69ab17218f05defebd86c1eccddde157650a7a603cfd357fb9cb5ff56f74a done
+#18 exporting manifest list sha256:a89c9ce97454d1195bc92647465cd9c38a53b6b65135fecf3dd62deb33472ad5 done
+#18 naming to docker.io/library/aci606-docker-rescue-frontend:latest done
+#18 unpacking to docker.io/library/aci606-docker-rescue-frontend:latest done
+#18 DONE 0.0s
+
+#19 [backend] exporting to image
+#19 exporting layers done
+#19 exporting manifest sha256:8e3b7eca885e9d056d23e8af0a2cd52563e3b05c0f968bc46f9967ef224c8cbd done
+#19 exporting config sha256:79c089ae3ba53989f564369e472b3e390da6a2293a781f075df0add1e645e78d done
+#19 exporting attestation manifest sha256:26bb322134b878bfd4176dc6fc1ec24479bcabf460c0cfc332d727d25e5b0715 done
+#19 exporting manifest list sha256:35ffe05294028cd76b56eeb0a861d6e2b79fdbfa007946f4f9a80f5c05193691 done
+#19 naming to docker.io/library/aci606-docker-rescue-backend:latest done
+#19 unpacking to docker.io/library/aci606-docker-rescue-backend:latest done
+#19 DONE 0.0s
+
+#20 [frontend] resolving provenance for metadata file
+#20 DONE 0.0s
+
+#21 [backend] resolving provenance for metadata file
+#21 DONE 0.0s
+ Image aci606-docker-rescue-backend Built 
+ Image aci606-docker-rescue-frontend Built 
+ Network aci606-docker-rescue_default Creating 
+ Network aci606-docker-rescue_default Created 
+ Container aci606-docker-rescue-db-1 Creating 
+ Container aci606-docker-rescue-db-1 Created 
+ Container aci606-docker-rescue-backend-1 Creating 
+ Container aci606-docker-rescue-backend-1 Created 
+ Container aci606-docker-rescue-frontend-1 Creating 
+ Container aci606-docker-rescue-frontend-1 Created 
+ Container aci606-docker-rescue-db-1 Starting 
+ Container aci606-docker-rescue-db-1 Started 
+ Container aci606-docker-rescue-db-1 Waiting 
+ Container aci606-docker-rescue-db-1 Healthy 
+ Container aci606-docker-rescue-backend-1 Starting 
+ Container aci606-docker-rescue-backend-1 Started 
+ Container aci606-docker-rescue-frontend-1 Starting 
+ Container aci606-docker-rescue-frontend-1 Started 
+ Container aci606-docker-rescue-frontend-1 Stopping 
+ Container aci606-docker-rescue-frontend-1 Stopped 
+ Container aci606-docker-rescue-frontend-1 Removing 
+ Container aci606-docker-rescue-frontend-1 Removed 
+ Container aci606-docker-rescue-backend-1 Stopping 
+ Container aci606-docker-rescue-backend-1 Stopped 
+ Container aci606-docker-rescue-backend-1 Removing 
+ Container aci606-docker-rescue-backend-1 Removed 
+ Container aci606-docker-rescue-db-1 Stopping 
+ Container aci606-docker-rescue-db-1 Stopped 
+ Container aci606-docker-rescue-db-1 Removing 
+ Container aci606-docker-rescue-db-1 Removed 
+ Network aci606-docker-rescue_default Removing 
+ Network aci606-docker-rescue_default Removed 
+ Image aci606-docker-rescue-frontend Building 
+ Image aci606-docker-rescue-backend Building 
+#1 [internal] load local bake definitions
+#1 reading from stdin 1.15kB done
+#1 DONE 0.0s
+
+#2 [backend internal] load build definition from Dockerfile
+#2 transferring dockerfile: 243B done
+#2 DONE 0.0s
+
+#3 [frontend internal] load build definition from Dockerfile
+#3 transferring dockerfile: 168B done
+#3 DONE 0.0s
+
+#4 [frontend internal] load metadata for docker.io/library/nginx:1.27-alpine
+#4 DONE 0.1s
+
+#5 [backend internal] load metadata for docker.io/library/python:3.12-slim
+#5 DONE 0.1s
+
+#6 [frontend internal] load .dockerignore
+#6 transferring context: 2B done
+#6 DONE 0.0s
+
+#7 [backend internal] load .dockerignore
+#7 transferring context: 2B done
+#7 DONE 0.0s
+
+#8 [frontend internal] load build context
+#8 transferring context: 62B done
+#8 DONE 0.0s
+
+#9 [backend internal] load build context
+#9 transferring context: 64B done
+#9 DONE 0.0s
+
+#10 [frontend 1/3] FROM docker.io/library/nginx:1.27-alpine@sha256:65645c7bb6a0661892a8b03b89d0743208a18dd2f3f17a54ef4b76fb8e2f2a10
+#10 resolve docker.io/library/nginx:1.27-alpine@sha256:65645c7bb6a0661892a8b03b89d0743208a18dd2f3f17a54ef4b76fb8e2f2a10 done
+#10 DONE 0.0s
+
+#11 [frontend 2/3] COPY index.html /usr/share/nginx/html/index.html
+#11 CACHED
+
+#12 [frontend 3/3] COPY nginx.conf /etc/nginx/conf.d/default.conf
+#12 CACHED
+
+#13 [backend 1/5] FROM docker.io/library/python:3.12-slim@sha256:5e2bdb1b0d542d5039cffb8181c65930093949194a65c365dfb1b0fe13a4fa5b
+#13 resolve docker.io/library/python:3.12-slim@sha256:5e2bdb1b0d542d5039cffb8181c65930093949194a65c365dfb1b0fe13a4fa5b done
+#13 DONE 0.0s
+
+#14 [backend 3/5] COPY requirements.txt .
+#14 CACHED
+
+#15 [backend 2/5] WORKDIR /app
+#15 CACHED
+
+#16 [backend 4/5] RUN pip install --no-cache-dir -r requirements.txt
+#16 CACHED
+
+#17 [backend 5/5] COPY main.py .
+#17 CACHED
+
+#18 [backend] exporting to image
+#18 exporting layers done
+#18 exporting manifest sha256:8e3b7eca885e9d056d23e8af0a2cd52563e3b05c0f968bc46f9967ef224c8cbd done
+#18 exporting config sha256:79c089ae3ba53989f564369e472b3e390da6a2293a781f075df0add1e645e78d done
+#18 exporting attestation manifest sha256:80695031c3050c69809a08fadc969a23aa445d606e4f56dce773d12c549dfc81 done
+#18 exporting manifest list sha256:50e94237248fc5a9d7c819f911f3b68cf399d2fb935c92076c2f59186974eb9f done
+#18 naming to docker.io/library/aci606-docker-rescue-backend:latest done
+#18 unpacking to docker.io/library/aci606-docker-rescue-backend:latest done
+#18 DONE 0.0s
+
+#19 [frontend] exporting to image
+#19 exporting layers done
+#19 exporting manifest sha256:ff6f2b8891b3059b6c86c4bdae02a07344bfce8893763615c4e74dae11e67e5a done
+#19 exporting config sha256:7ef952ef75296d9adb75fb487c2bdc3ee74863a2623f90affb931ac814451ce8 done
+#19 exporting attestation manifest sha256:8da0d8d5845bf2bdac333ca9034c83fe38627158705e70b4d7651b95b6385f2c done
+#19 exporting manifest list sha256:d8616ec5dd9d88308dbd232645c722ed6f51003cdd49262f4406376f4ba27cc2 done
+#19 naming to docker.io/library/aci606-docker-rescue-frontend:latest done
+#19 unpacking to docker.io/library/aci606-docker-rescue-frontend:latest done
+#19 DONE 0.0s
+
+#20 [frontend] resolving provenance for metadata file
+#20 DONE 0.0s
+
+#21 [backend] resolving provenance for metadata file
+#21 DONE 0.0s
+ Image aci606-docker-rescue-backend Built 
+ Image aci606-docker-rescue-frontend Built 
+ Network aci606-docker-rescue_default Creating 
+ Network aci606-docker-rescue_default Created 
+ Volume aci606-docker-rescue_pgdata Creating 
+ Volume aci606-docker-rescue_pgdata Created 
+ Container aci606-docker-rescue-db-1 Creating 
+ Container aci606-docker-rescue-db-1 Created 
+ Container aci606-docker-rescue-backend-1 Creating 
+ Container aci606-docker-rescue-backend-1 Created 
+ Container aci606-docker-rescue-frontend-1 Creating 
+ Container aci606-docker-rescue-frontend-1 Created 
+ Container aci606-docker-rescue-db-1 Starting 
+ Container aci606-docker-rescue-db-1 Started 
+ Container aci606-docker-rescue-db-1 Waiting 
+ Container aci606-docker-rescue-db-1 Healthy 
+ Container aci606-docker-rescue-backend-1 Starting 
+ Container aci606-docker-rescue-backend-1 Started 
+ Container aci606-docker-rescue-frontend-1 Starting 
+ Container aci606-docker-rescue-frontend-1 Started 
+ Image aci606-docker-rescue-frontend Building 
+ Image aci606-docker-rescue-backend Building 
+#1 [internal] load local bake definitions
+#1 reading from stdin 1.15kB done
+#1 DONE 0.0s
+
+#2 [frontend internal] load build definition from Dockerfile
+#2 transferring dockerfile: 168B done
+#2 DONE 0.0s
+
+#3 [backend internal] load build definition from Dockerfile
+#3 transferring dockerfile: 243B done
+#3 DONE 0.0s
+
+#4 [frontend internal] load metadata for docker.io/library/nginx:1.27-alpine
+#4 DONE 0.1s
+
+#5 [backend internal] load metadata for docker.io/library/python:3.12-slim
+#5 DONE 0.1s
+
+#6 [frontend internal] load .dockerignore
+#6 transferring context: 2B done
+#6 DONE 0.0s
+
+#7 [backend internal] load .dockerignore
+#7 transferring context: 2B done
+#7 DONE 0.0s
+
+#8 [frontend internal] load build context
+#8 transferring context: 62B done
+#8 DONE 0.0s
+
+#9 [backend internal] load build context
+#9 transferring context: 64B done
+#9 DONE 0.0s
+
+#10 [frontend 1/3] FROM docker.io/library/nginx:1.27-alpine@sha256:65645c7bb6a0661892a8b03b89d0743208a18dd2f3f17a54ef4b76fb8e2f2a10
+#10 resolve docker.io/library/nginx:1.27-alpine@sha256:65645c7bb6a0661892a8b03b89d0743208a18dd2f3f17a54ef4b76fb8e2f2a10 done
+#10 DONE 0.0s
+
+#11 [frontend 2/3] COPY index.html /usr/share/nginx/html/index.html
+#11 CACHED
+
+#12 [frontend 3/3] COPY nginx.conf /etc/nginx/conf.d/default.conf
+#12 CACHED
+
+#13 [backend 1/5] FROM docker.io/library/python:3.12-slim@sha256:5e2bdb1b0d542d5039cffb8181c65930093949194a65c365dfb1b0fe13a4fa5b
+#13 resolve docker.io/library/python:3.12-slim@sha256:5e2bdb1b0d542d5039cffb8181c65930093949194a65c365dfb1b0fe13a4fa5b done
+#13 DONE 0.0s
+
+#14 [backend 4/5] RUN pip install --no-cache-dir -r requirements.txt
+#14 CACHED
+
+#15 [backend 2/5] WORKDIR /app
+#15 CACHED
+
+#16 [backend 3/5] COPY requirements.txt .
+#16 CACHED
+
+#17 [backend 5/5] COPY main.py .
+#17 CACHED
+
+#18 [backend] exporting to image
+#18 exporting layers done
+#18 exporting manifest sha256:8e3b7eca885e9d056d23e8af0a2cd52563e3b05c0f968bc46f9967ef224c8cbd done
+#18 exporting config sha256:79c089ae3ba53989f564369e472b3e390da6a2293a781f075df0add1e645e78d done
+#18 exporting attestation manifest sha256:c448273bbe56e1241abab36d1c8c7f040377c110418b916820eba725ba88f615 done
+#18 exporting manifest list sha256:e061077339c178263495794ea371f73666aad259b49b83f78be2d0743e2d6b73 done
+#18 naming to docker.io/library/aci606-docker-rescue-backend:latest done
+#18 unpacking to docker.io/library/aci606-docker-rescue-backend:latest done
+#18 DONE 0.0s
+
+#19 [frontend] exporting to image
+#19 exporting layers done
+#19 exporting manifest sha256:ff6f2b8891b3059b6c86c4bdae02a07344bfce8893763615c4e74dae11e67e5a done
+#19 exporting config sha256:7ef952ef75296d9adb75fb487c2bdc3ee74863a2623f90affb931ac814451ce8 done
+#19 exporting attestation manifest sha256:2c63c854e2da0a05f7b37f44fb431c8116b9b68c4123e943e5f7b5d6315b7cd9 done
+#19 exporting manifest list sha256:64afc1e1f6a8d6d1bb87b94fa3251500ce9005276aa55e772ba819cce1fa692f done
+#19 naming to docker.io/library/aci606-docker-rescue-frontend:latest done
+#19 unpacking to docker.io/library/aci606-docker-rescue-frontend:latest done
+#19 DONE 0.0s
+
+#20 [backend] resolving provenance for metadata file
+#20 DONE 0.0s
+
+#21 [frontend] resolving provenance for metadata file
+#21 DONE 0.0s
+ Image aci606-docker-rescue-backend Built 
+ Image aci606-docker-rescue-frontend Built 
+ Network aci606-docker-rescue_default Creating 
+ Network aci606-docker-rescue_default Created 
+ Container aci606-docker-rescue-db-1 Creating 
+ Container aci606-docker-rescue-db-1 Created 
+ Container aci606-docker-rescue-backend-1 Creating 
+ Container aci606-docker-rescue-backend-1 Created 
+ Container aci606-docker-rescue-frontend-1 Creating 
+ Container aci606-docker-rescue-frontend-1 Created 
+ Container aci606-docker-rescue-db-1 Starting 
+ Container aci606-docker-rescue-db-1 Started 
+ Container aci606-docker-rescue-db-1 Waiting 
+ Container aci606-docker-rescue-db-1 Healthy 
+ Container aci606-docker-rescue-backend-1 Starting 
+ Container aci606-docker-rescue-backend-1 Started 
+ Container aci606-docker-rescue-frontend-1 Starting 
+ Container aci606-docker-rescue-frontend-1 Started 
+ Container aci606-docker-rescue-frontend-1 Stopping 
+ Container aci606-docker-rescue-frontend-1 Stopped 
+ Container aci606-docker-rescue-frontend-1 Removing 
+ Container aci606-docker-rescue-frontend-1 Removed 
+ Container aci606-docker-rescue-backend-1 Stopping 
+ Container aci606-docker-rescue-backend-1 Stopped 
+ Container aci606-docker-rescue-backend-1 Removing 
+ Container aci606-docker-rescue-backend-1 Removed 
+ Container aci606-docker-rescue-db-1 Stopping 
+ Container aci606-docker-rescue-db-1 Stopped 
+ Container aci606-docker-rescue-db-1 Removing 
+ Container aci606-docker-rescue-db-1 Removed 
+ Volume aci606-docker-rescue_pgdata Removing 
+ Network aci606-docker-rescue_default Removing 
+ Volume aci606-docker-rescue_pgdata Removed 
+ Network aci606-docker-rescue_default Removed 
+ Image aci606-docker-rescue-frontend Building 
+ Image aci606-docker-rescue-backend Building 
+#1 [internal] load local bake definitions
+#1 reading from stdin 1.15kB done
+#1 DONE 0.0s
+
+#2 [frontend internal] load build definition from Dockerfile
+#2 transferring dockerfile: 168B done
+#2 DONE 0.0s
+
+#3 [backend internal] load build definition from Dockerfile
+#3 transferring dockerfile: 243B done
+#3 DONE 0.0s
+
+#4 [backend internal] load metadata for docker.io/library/python:3.12-slim
+#4 DONE 0.1s
+
+#5 [frontend internal] load metadata for docker.io/library/nginx:1.27-alpine
+#5 DONE 0.1s
+
+#6 [backend internal] load .dockerignore
+#6 transferring context: 2B done
+#6 DONE 0.0s
+
+#7 [frontend internal] load .dockerignore
+#7 transferring context: 2B done
+#7 DONE 0.0s
+
+#8 [backend internal] load build context
+#8 transferring context: 64B done
+#8 DONE 0.0s
+
+#9 [frontend internal] load build context
+#9 transferring context: 62B done
+#9 DONE 0.0s
+
+#10 [backend 1/5] FROM docker.io/library/python:3.12-slim@sha256:5e2bdb1b0d542d5039cffb8181c65930093949194a65c365dfb1b0fe13a4fa5b
+#10 resolve docker.io/library/python:3.12-slim@sha256:5e2bdb1b0d542d5039cffb8181c65930093949194a65c365dfb1b0fe13a4fa5b 0.0s done
+#10 DONE 0.0s
+
+#11 [frontend 1/3] FROM docker.io/library/nginx:1.27-alpine@sha256:65645c7bb6a0661892a8b03b89d0743208a18dd2f3f17a54ef4b76fb8e2f2a10
+#11 resolve docker.io/library/nginx:1.27-alpine@sha256:65645c7bb6a0661892a8b03b89d0743208a18dd2f3f17a54ef4b76fb8e2f2a10 done
+#11 DONE 0.0s
+
+#12 [backend 3/5] COPY requirements.txt .
+#12 CACHED
+
+#13 [backend 4/5] RUN pip install --no-cache-dir -r requirements.txt
+#13 CACHED
+
+#14 [backend 2/5] WORKDIR /app
+#14 CACHED
+
+#15 [backend 5/5] COPY main.py .
+#15 CACHED
+
+#16 [frontend 2/3] COPY index.html /usr/share/nginx/html/index.html
+#16 CACHED
+
+#17 [frontend 3/3] COPY nginx.conf /etc/nginx/conf.d/default.conf
+#17 CACHED
+
+#18 [backend] exporting to image
+#18 exporting layers done
+#18 exporting manifest sha256:8e3b7eca885e9d056d23e8af0a2cd52563e3b05c0f968bc46f9967ef224c8cbd done
+#18 exporting config sha256:79c089ae3ba53989f564369e472b3e390da6a2293a781f075df0add1e645e78d done
+#18 exporting attestation manifest sha256:5202a88ff6fe1b9da5fd40d4c2bb71a2f749aaaa233c8e0d194a1411068e6b24 done
+#18 exporting manifest list sha256:a245591364e947bf12be261d299f2ec591087bbfd6ac0aa925482795de86e21e done
+#18 naming to docker.io/library/aci606-docker-rescue-backend:latest done
+#18 unpacking to docker.io/library/aci606-docker-rescue-backend:latest done
+#18 DONE 0.0s
+
+#19 [frontend] exporting to image
+#19 exporting layers done
+#19 exporting manifest sha256:ff6f2b8891b3059b6c86c4bdae02a07344bfce8893763615c4e74dae11e67e5a done
+#19 exporting config sha256:7ef952ef75296d9adb75fb487c2bdc3ee74863a2623f90affb931ac814451ce8 done
+#19 exporting attestation manifest sha256:8848183bd6e38bb46d0104c45d0bef0a4a2745be103f6ea586d3ec12f3539729 done
+#19 exporting manifest list sha256:2112dad61211a1326fcfde8a1c177da1ab3267d563809748d2ea71d8e77616aa done
+#19 naming to docker.io/library/aci606-docker-rescue-frontend:latest done
+#19 unpacking to docker.io/library/aci606-docker-rescue-frontend:latest done
+#19 DONE 0.0s
+
+#20 [backend] resolving provenance for metadata file
+#20 DONE 0.0s
+
+#21 [frontend] resolving provenance for metadata file
+#21 DONE 0.0s
+ Image aci606-docker-rescue-backend Built 
+ Image aci606-docker-rescue-frontend Built 
+ Network aci606-docker-rescue_rescue_net Creating 
+ Network aci606-docker-rescue_rescue_net Created 
+ Volume aci606-docker-rescue_pgdata Creating 
+ Volume aci606-docker-rescue_pgdata Created 
+ Container aci606-docker-rescue-db-1 Creating 
+ Container aci606-docker-rescue-db-1 Created 
+ Container aci606-docker-rescue-backend-1 Creating 
+ Container aci606-docker-rescue-backend-1 Created 
+ Container aci606-docker-rescue-frontend-1 Creating 
+ Container aci606-docker-rescue-frontend-1 Created 
+ Container aci606-docker-rescue-db-1 Starting 
+ Container aci606-docker-rescue-db-1 Started 
+ Container aci606-docker-rescue-db-1 Waiting 
+ Container aci606-docker-rescue-db-1 Healthy 
+ Container aci606-docker-rescue-backend-1 Starting 
+ Container aci606-docker-rescue-backend-1 Started 
+ Container aci606-docker-rescue-backend-1 Waiting 
+ Container aci606-docker-rescue-backend-1 Healthy 
+ Container aci606-docker-rescue-frontend-1 Starting 
+ Container aci606-docker-rescue-frontend-1 Started 
+ Container aci606-docker-rescue-frontend-1 Stopping 
+ Container aci606-docker-rescue-frontend-1 Stopped 
+ Container aci606-docker-rescue-frontend-1 Removing 
+ Container aci606-docker-rescue-frontend-1 Removed 
+ Container aci606-docker-rescue-backend-1 Stopping 
+ Container aci606-docker-rescue-backend-1 Stopped 
+ Container aci606-docker-rescue-backend-1 Removing 
+ Container aci606-docker-rescue-backend-1 Removed 
+ Container aci606-docker-rescue-db-1 Stopping 
+ Container aci606-docker-rescue-db-1 Stopped 
+ Container aci606-docker-rescue-db-1 Removing 
+ Container aci606-docker-rescue-db-1 Removed 
+ Volume aci606-docker-rescue_pgdata Removing 
+ Network aci606-docker-rescue_rescue_net Removing 
+ Volume aci606-docker-rescue_pgdata Removed 
+ Network aci606-docker-rescue_rescue_net Removed 
+ Container aci606-docker-rescue-frontend-1 Stopping 
+ Container aci606-docker-rescue-frontend-1 Stopped 
+ Container aci606-docker-rescue-frontend-1 Removing 
+ Container aci606-docker-rescue-frontend-1 Removed 
+ Container aci606-docker-rescue-backend-1 Stopping 
+ Container aci606-docker-rescue-backend-1 Stopped 
+ Container aci606-docker-rescue-backend-1 Removing 
+ Container aci606-docker-rescue-backend-1 Removed 
+ Container aci606-docker-rescue-db-1 Stopping 
+ Container aci606-docker-rescue-db-1 Stopped 
+ Container aci606-docker-rescue-db-1 Removing 
+ Container aci606-docker-rescue-db-1 Removed 
+ Network aci606-docker-rescue_rescue_net Removing 
+ Network aci606-docker-rescue_rescue_net Removed 

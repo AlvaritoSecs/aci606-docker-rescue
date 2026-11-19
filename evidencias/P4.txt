@@ -1,0 +1,17 @@
+## FALLO CONTROLADO: se detiene el servicio db
+$ docker compose stop db
+ Container aci606-docker-rescue-db-1 Stopping 
+ Container aci606-docker-rescue-db-1 Stopped 
+
+$ curl -s -i http://localhost:8080/api/health
+HTTP/1.1 503 Service Unavailable
+Server: nginx/1.27.5
+Date: Thu, 19 Nov 2026 19:48:11 GMT
+Content-Type: application/json
+Content-Length: 212
+Connection: keep-alive
+
+{"detail":"database unavailable: (psycopg2.OperationalError) could not translate host name \"db\" to address: Temporary failure in name resolution\n\n(Background on this error at: https://sqlalche.me/e/20/e3q8)"}
+$ curl -s -o /dev/null -w 'Frontend (pagina) HTTP %{http_code}\n' http://localhost:8080/
+Frontend (pagina) HTTP 200
+
