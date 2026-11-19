@@ -82,6 +82,7 @@ ir inicial R-01
 bajar -v
 subir 10
 nota R-01 "SINTOMA"
+ev R-01 "docker ps -a --filter name=aci606-docker-rescue --format 'table {{.Names}}\t{{.Status}}'"
 ev R-01 "docker compose ps -a"
 ev R-01 "docker compose logs --tail 20 backend"
 
@@ -186,6 +187,7 @@ paso "Mejoras"
 bajar -v
 ir mejoras MEJORAS
 subir 5; esperar_sano 3
+ev MEJORAS "docker compose config --quiet && echo 'compose.yaml valido (docker compose config)'"
 ev MEJORAS "docker compose ps"
 ev MEJORAS "docker network ls"
 ev MEJORAS "docker volume ls"
@@ -220,6 +222,13 @@ ev P3 "docker compose up -d >/dev/null 2>&1; echo \"docker compose up -d -> codi
 esperar_sano 3
 ev P3 "curl -s http://localhost:8080/api/items"
 ev P3 "docker volume inspect \$(docker volume ls -q | grep pgdata)"
+nota P3 "RECREACION SOLO DEL CONTENEDOR ASOCIADO (db)"
+ev P3 "docker inspect --format 'id del contenedor db antes:   {{.Id}}' \$(docker compose ps -q db)"
+ev P3 "docker compose up -d --force-recreate db >/dev/null 2>&1; echo \"docker compose up -d --force-recreate db -> codigo de salida \$?\""
+esperar_sano 3
+ev P3 "docker inspect --format 'id del contenedor db despues: {{.Id}}' \$(docker compose ps -q db)"
+ev P3 "$(POST_ITEM despues-de-recrear-db)"
+ev P3 "docker compose exec -T db psql -U appuser -d appdb -c 'SELECT id, name FROM items ORDER BY id;'"
 
 nota P4 "FALLO CONTROLADO: se detiene el servicio db"
 ev P4 "docker compose stop db"
@@ -233,6 +242,9 @@ sleep 45
 ev P5 "docker compose ps -a"
 ev P5 "docker compose logs --tail 12 backend"
 ev P5 "docker inspect --format '{{json .State.Health}}' \$(docker compose ps -q backend)"
+ev P5 "docker exec \$(docker compose ps -q backend) sh -c 'echo usuario: \$(id -un); python -c \"import urllib.request as u
+try: u.urlopen(\\\"http://127.0.0.1:8000/health\\\")
+except Exception as e: print(e); print(e.read().decode() if hasattr(e, \\\"read\\\") else \\\"\\\")\"'"
 
 nota P6 "RECUPERACION: se vuelve a iniciar db"
 ev P6 "docker compose start db"
