@@ -1,24 +1,30 @@
 ## Codigo en mejoras (fa0090e): Mejoras: configuracion externalizada, healthchecks, red y README reproducible
 $ docker compose ps
 NAME                              IMAGE                           COMMAND                  SERVICE    CREATED          STATUS                    PORTS
-aci606-docker-rescue-backend-1    aci606-docker-rescue-backend    "uvicorn main:app --…"   backend    23 seconds ago   Up 16 seconds (healthy)   8000/tcp
+aci606-docker-rescue-backend-1    aci606-docker-rescue-backend    "uvicorn main:app --…"   backend    23 seconds ago   Up 17 seconds (healthy)   8000/tcp
 aci606-docker-rescue-db-1         postgres:16-alpine              "docker-entrypoint.s…"   db         23 seconds ago   Up 22 seconds (healthy)   5432/tcp
 aci606-docker-rescue-frontend-1   aci606-docker-rescue-frontend   "/docker-entrypoint.…"   frontend   23 seconds ago   Up 11 seconds (healthy)   0.0.0.0:8080->80/tcp, [::]:8080->80/tcp
 
 $ docker network ls
 NETWORK ID     NAME                              DRIVER    SCOPE
-5ef20e44a2d1   aci606-docker-rescue_rescue_net   bridge    local
-95b0166ac6ee   bridge                            bridge    local
-4c2b20b9ec38   host                              host      local
-f13adf5a48ef   none                              null      local
+2cb85bd0b78b   aci606-docker-rescue_rescue_net   bridge    local
+3fd7cc84fc15   bridge                            bridge    local
+bf18c71090f6   host                              host      local
+7defb03e1799   none                              null      local
 
 $ docker volume ls
 DRIVER    VOLUME NAME
-local     88b73570c25606ba62ff1ccde069fd621dc8a81694f0d14ea867c82405ae0fff
+local     6ee425c05adf5c9755960fd196f1ab1e2af89f9eff392766dc51b151ff7871e9
 local     aci606-docker-rescue_pgdata
 
 $ docker inspect --format '{{.Name}} -> {{json .State.Health.Status}}' $(docker compose ps -q)
 /aci606-docker-rescue-backend-1 -> "healthy"
 /aci606-docker-rescue-db-1 -> "healthy"
 /aci606-docker-rescue-frontend-1 -> "healthy"
+
+$ docker network inspect aci606-docker-rescue_rescue_net --format '{{range .Containers}}{{.Name}}  {{.IPv4Address}}{{println}}{{end}}'
+aci606-docker-rescue-db-1  172.18.0.2/16
+aci606-docker-rescue-backend-1  172.18.0.3/16
+aci606-docker-rescue-frontend-1  172.18.0.4/16
+
 

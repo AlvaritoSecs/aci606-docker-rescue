@@ -2,8 +2,8 @@
 ## SINTOMA
 $ docker compose ps -a
 NAME                              IMAGE                           COMMAND                  SERVICE    CREATED          STATUS                      PORTS
-aci606-docker-rescue-backend-1    aci606-docker-rescue-backend    "uvicorn main:app --…"   backend    11 seconds ago   Exited (3) 10 seconds ago   
-aci606-docker-rescue-db-1         postgres:16-alpine              "docker-entrypoint.s…"   db         41 seconds ago   Up 40 seconds               5432/tcp
+aci606-docker-rescue-backend-1    aci606-docker-rescue-backend    "uvicorn main:app --…"   backend    12 seconds ago   Exited (3) 10 seconds ago   
+aci606-docker-rescue-db-1         postgres:16-alpine              "docker-entrypoint.s…"   db         43 seconds ago   Up 42 seconds               5432/tcp
 aci606-docker-rescue-frontend-1   aci606-docker-rescue-frontend   "/docker-entrypoint.…"   frontend   11 seconds ago   Up 10 seconds               80/tcp, 0.0.0.0:8080->8080/tcp, [::]:8080->8080/tcp
 
 $ docker compose logs --tail 20 backend
@@ -30,6 +30,14 @@ backend-1  | ERROR:    Application startup failed. Exiting.
 
 $ docker compose config | grep DATABASE_URL
       DATABASE_URL: postgresql://appuser:wrongpass@localhost:5432/appdb
+
+$ docker compose run --rm --no-deps -T --entrypoint sh backend -c 'echo localhost:; getent hosts localhost; echo db:; getent hosts db'
+ Container aci606-docker-rescue-backend-run-b57e2ab26c93 Creating 
+ Container aci606-docker-rescue-backend-run-b57e2ab26c93 Created 
+localhost:
+::1             localhost ip6-localhost ip6-loopback
+db:
+172.18.0.2      db
 
 ## Codigo en r03 (86cb72a): R-03: DATABASE_URL usaba localhost; se usa el servicio db
 ## VERIFICACION (el backend ya llega al servicio db)

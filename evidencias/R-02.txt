@@ -2,9 +2,9 @@
 ## SINTOMA
 $ docker compose ps -a
 NAME                              IMAGE                           COMMAND                  SERVICE    CREATED          STATUS                     PORTS
-aci606-docker-rescue-backend-1    aci606-docker-rescue-backend    "uvicorn main:app --…"   backend    10 seconds ago   Exited (1) 9 seconds ago   
-aci606-docker-rescue-db-1         postgres:16-alpine              "docker-entrypoint.s…"   db         22 seconds ago   Up 22 seconds              5432/tcp
-aci606-docker-rescue-frontend-1   aci606-docker-rescue-frontend   "/docker-entrypoint.…"   frontend   10 seconds ago   Up 10 seconds              80/tcp, 0.0.0.0:8080->8080/tcp, [::]:8080->8080/tcp
+aci606-docker-rescue-backend-1    aci606-docker-rescue-backend    "uvicorn main:app --…"   backend    11 seconds ago   Exited (1) 9 seconds ago   
+aci606-docker-rescue-db-1         postgres:16-alpine              "docker-entrypoint.s…"   db         22 seconds ago   Up 21 seconds              5432/tcp
+aci606-docker-rescue-frontend-1   aci606-docker-rescue-frontend   "/docker-entrypoint.…"   frontend   11 seconds ago   Up 10 seconds              80/tcp, 0.0.0.0:8080->8080/tcp, [::]:8080->8080/tcp
 
 $ docker compose logs --tail 20 backend
 backend-1  |            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
@@ -32,8 +32,8 @@ backend-1  | ModuleNotFoundError: No module named 'psycopg2'
 ## VERIFICACION (el modulo psycopg2 ya se importa)
 $ docker compose exec -T backend pip show psycopg2-binary || docker compose run --rm --no-deps -T backend pip show psycopg2-binary
 service "backend" is not running
- Container aci606-docker-rescue-backend-run-439c95ef0d0b Creating 
- Container aci606-docker-rescue-backend-run-439c95ef0d0b Created 
+ Container aci606-docker-rescue-backend-run-4f0fd30997da Creating 
+ Container aci606-docker-rescue-backend-run-4f0fd30997da Created 
 Name: psycopg2-binary
 Version: 2.9.10
 Summary: psycopg2 - Python-PostgreSQL Database Adapter

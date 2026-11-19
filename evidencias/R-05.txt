@@ -5,7 +5,7 @@ $ curl -sv --max-time 5 http://localhost:8080/
 * IPv6: ::1
 * IPv4: 127.0.0.1
 *   Trying [::1]:8080...
-* Established connection to localhost (::1 port 8080) from ::1 port 44760 
+* Established connection to localhost (::1 port 8080) from ::1 port 39886 
 * using HTTP/1.x
 > GET / HTTP/1.1
 > Host: localhost:8080
