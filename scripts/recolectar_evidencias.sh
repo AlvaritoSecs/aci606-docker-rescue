@@ -200,7 +200,7 @@ nota P1 "PREPARACION: .env a partir de .env.example (en Codespaces lo hace postC
 ev P1 "test -f .env && echo '.env ya existe' || cp -v .env.example .env"
 nota P1 "ARRANQUE LIMPIO desde el proyecto detenido"
 ev P1 "docker compose ps -a"
-ev P1 "docker compose --progress plain up --build -d 2>&1 | tail -12"
+ev P1 "docker compose up --build -d >/dev/null 2>&1; echo \"docker compose up --build -d -> codigo de salida \$?\""
 esperar_sano 3
 ev P1 "docker compose ps"
 ev P1 "docker compose exec -T backend id"
@@ -216,7 +216,7 @@ captura P2_navegador
 nota P3 "PERSISTENCIA: se recrean todos los contenedores (down + up) y se consulta"
 ev P3 "docker compose down"
 ev P3 "docker compose ps -a"
-ev P3 "docker compose up -d 2>&1 | tail -5"
+ev P3 "docker compose up -d >/dev/null 2>&1; echo \"docker compose up -d -> codigo de salida \$?\""
 esperar_sano 3
 ev P3 "curl -s http://localhost:8080/api/items"
 ev P3 "docker volume inspect \$(docker volume ls -q | grep pgdata)"
@@ -244,8 +244,8 @@ captura P6_navegador_recuperado
 
 nota P4b "FALLO CONTROLADO 2: se detiene el servicio backend"
 ev P4b "docker compose stop backend"
-ev P4b "curl -s -i --max-time 15 http://localhost:8080/api/health"
-ev P4b "docker compose logs --tail 3 frontend"
+ev P4b "time curl -s -i --max-time 15 http://localhost:8080/api/health"
+ev P4b "docker compose logs --tail 2 frontend"
 ev P4b "docker compose ps -a"
 captura P4b_navegador_backend_detenido
 nota P4b "RECUPERACION"
@@ -257,13 +257,13 @@ ev P4b "curl -s http://localhost:8080/api/items"
 nota P7 "CONFIGURACION EXTERNALIZADA: cambiar el puerto publicado solo editando .env (sin tocar compose.yaml ni reconstruir)"
 cp .env /tmp/env.respaldo
 ev P7 "sed -i 's/^FRONTEND_PORT=.*/FRONTEND_PORT=9090/' .env && grep FRONTEND_PORT .env"
-ev P7 "docker compose up -d 2>&1 | tail -4"
+ev P7 "docker compose up -d >/dev/null 2>&1; echo \"docker compose up -d -> codigo de salida \$?\""
 esperar_sano 3
 ev P7 "docker compose ps frontend"
 ev P7 "curl -s -o /dev/null -w 'puerto 9090 -> HTTP %{http_code}\n' http://localhost:9090/"
 ev P7 "curl -s -o /dev/null --max-time 3 -w 'puerto 8080 -> HTTP %{http_code}\n' http://localhost:8080/ || true"
 cp /tmp/env.respaldo .env
-ev P7 "docker compose up -d 2>&1 | tail -4"
+ev P7 "docker compose up -d >/dev/null 2>&1; echo \"docker compose up -d -> codigo de salida \$?\""
 esperar_sano 3
 ev P7 "docker compose ps frontend"
 
