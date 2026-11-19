@@ -1,0 +1,9 @@
+{
+  "name": "ACI606 Docker Rescue",
+  "image": "mcr.microsoft.com/devcontainers/universal:2",
+  "postCreateCommand": "cp -n .env.example .env || true",
+  "forwardPorts": [8080],
+  "portsAttributes": {
+    "8080": { "label": "Frontend (nginx)" }
+  }
+}
