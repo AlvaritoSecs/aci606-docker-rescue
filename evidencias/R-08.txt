@@ -1,9 +1,9 @@
 ## Codigo en r07 (0609708): R-07: el backend esperaba solo el arranque de db, no que estuviera lista
 ## SINTOMA: se crea un registro, se recrean los contenedores y se consulta
 $ curl -s -X POST localhost:8080/api/items -H 'Content-Type: application/json' -d '{"name":"antes-de-recrear"}'
-{"id":1,"name":"antes-de-recrear","created_at":"2026-11-19T20:30:26.264692"}
+{"id":1,"name":"antes-de-recrear","created_at":"2026-11-19T20:38:04.329624"}
 $ curl -s http://localhost:8080/api/items
-[{"id":1,"name":"antes-de-recrear","created_at":"2026-11-19T20:30:26.264692"}]
+[{"id":1,"name":"antes-de-recrear","created_at":"2026-11-19T20:38:04.329624"}]
 $ docker compose down
  Container aci606-docker-rescue-frontend-1 Stopping 
  Container aci606-docker-rescue-frontend-1 Stopped 
@@ -24,13 +24,13 @@ $ curl -s http://localhost:8080/api/items
 []
 $ docker volume ls
 DRIVER    VOLUME NAME
-local     6ee425c05adf5c9755960fd196f1ab1e2af89f9eff392766dc51b151ff7871e9
-local     87ae3f855782871a66026d345e37ae826dd9fc048268882f8e4ac64ecd3d3e13
+local     7878cab7a86f6b5e51d05906fa98b047a780fb18ca16e383505ef56a2a14aec9
+local     a861251463ec371e3368e561106960de37ceb9e97d2301f45592804624c100b9
 
 ## Codigo en r08 (6e45e55): R-08: volumen nombrado pgdata para los datos de PostgreSQL
 ## VERIFICACION (volumen nombrado pgdata)
 $ curl -s -X POST localhost:8080/api/items -H 'Content-Type: application/json' -d '{"name":"persistente"}'
-{"id":1,"name":"persistente","created_at":"2026-11-19T20:30:58.794577"}
+{"id":1,"name":"persistente","created_at":"2026-11-19T20:38:36.571861"}
 $ docker compose down
  Container aci606-docker-rescue-frontend-1 Stopping 
  Container aci606-docker-rescue-frontend-1 Stopped 
@@ -48,9 +48,9 @@ $ docker compose down
  Network aci606-docker-rescue_default Removed 
 
 $ curl -s http://localhost:8080/api/items
-[{"id":1,"name":"persistente","created_at":"2026-11-19T20:30:58.794577"}]
+[{"id":1,"name":"persistente","created_at":"2026-11-19T20:38:36.571861"}]
 $ docker volume ls
 DRIVER    VOLUME NAME
-local     6ee425c05adf5c9755960fd196f1ab1e2af89f9eff392766dc51b151ff7871e9
+local     a861251463ec371e3368e561106960de37ceb9e97d2301f45592804624c100b9
 local     aci606-docker-rescue_pgdata
 

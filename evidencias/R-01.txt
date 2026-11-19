@@ -2,9 +2,9 @@
 ## SINTOMA
 $ docker compose ps -a
 NAME                              IMAGE                           COMMAND                  SERVICE    CREATED          STATUS                     PORTS
-aci606-docker-rescue-backend-1    aci606-docker-rescue-backend    "uvicorn app:app --h…"   backend    11 seconds ago   Exited (1) 9 seconds ago   
-aci606-docker-rescue-db-1         postgres:16-alpine              "docker-entrypoint.s…"   db         11 seconds ago   Up 10 seconds              5432/tcp
-aci606-docker-rescue-frontend-1   aci606-docker-rescue-frontend   "/docker-entrypoint.…"   frontend   11 seconds ago   Up 10 seconds              80/tcp, 0.0.0.0:8080->8080/tcp, [::]:8080->8080/tcp
+aci606-docker-rescue-backend-1    aci606-docker-rescue-backend    "uvicorn app:app --h…"   backend    10 seconds ago   Exited (1) 9 seconds ago   
+aci606-docker-rescue-db-1         postgres:16-alpine              "docker-entrypoint.s…"   db         10 seconds ago   Up 10 seconds              5432/tcp
+aci606-docker-rescue-frontend-1   aci606-docker-rescue-frontend   "/docker-entrypoint.…"   frontend   10 seconds ago   Up 10 seconds              80/tcp, 0.0.0.0:8080->8080/tcp, [::]:8080->8080/tcp
 
 $ docker compose logs --tail 20 backend
 backend-1  | ERROR:    Error loading ASGI app. Could not import module "app".

@@ -18,19 +18,15 @@ $ docker compose down
 $ docker compose ps -a
 NAME      IMAGE     COMMAND   SERVICE   CREATED   STATUS    PORTS
 
-$ docker compose up -d 2>&1 | tail -5
- Container aci606-docker-rescue-backend-1 Started 
- Container aci606-docker-rescue-backend-1 Waiting 
- Container aci606-docker-rescue-backend-1 Healthy 
- Container aci606-docker-rescue-frontend-1 Starting 
- Container aci606-docker-rescue-frontend-1 Started 
+$ docker compose up -d >/dev/null 2>&1; echo "docker compose up -d -> codigo de salida $?"
+docker compose up -d -> codigo de salida 0
 
 $ curl -s http://localhost:8080/api/items
-[{"id":1,"name":"robot-1","created_at":"2026-11-19T20:32:04.810831"},{"id":2,"name":"robot-2","created_at":"2026-11-19T20:32:04.821109"}]
+[{"id":1,"name":"robot-1","created_at":"2026-11-19T20:39:41.898318"},{"id":2,"name":"robot-2","created_at":"2026-11-19T20:39:41.906786"}]
 $ docker volume inspect $(docker volume ls -q | grep pgdata)
 [
     {
-        "CreatedAt": "2026-11-19T20:31:40Z",
+        "CreatedAt": "2026-11-19T20:39:18Z",
         "Driver": "local",
         "Labels": {
             "com.docker.compose.config-hash": "010675f8ef66497322fc52767366b73828fda6a9f9b1911caf0d441d4064b4f3",

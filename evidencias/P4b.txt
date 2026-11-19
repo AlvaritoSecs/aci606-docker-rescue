@@ -3,17 +3,34 @@ $ docker compose stop backend
  Container aci606-docker-rescue-backend-1 Stopping 
  Container aci606-docker-rescue-backend-1 Stopped 
 
-$ curl -s -i --max-time 15 http://localhost:8080/api/health
+$ time curl -s -i --max-time 15 http://localhost:8080/api/health
+HTTP/1.1 504 Gateway Time-out
+Server: nginx/1.27.5
+Date: Thu, 19 Nov 2026 20:41:15 GMT
+Content-Type: text/html
+Content-Length: 167
+Connection: keep-alive
 
-$ docker compose logs --tail 3 frontend
-frontend-1  | 127.0.0.1 - - [19/Nov/2026:20:33:38 +0000] "GET / HTTP/1.1" 200 2561 "-" "Wget" "-"
-frontend-1  | 127.0.0.1 - - [19/Nov/2026:20:33:48 +0000] "GET / HTTP/1.1" 200 2561 "-" "Wget" "-"
-frontend-1  | 172.18.0.1 - - [19/Nov/2026:20:33:48 +0000] "GET /api/health HTTP/1.1" 499 0 "-" "curl/8.18.0" "-"
+<html>
+<head><title>504 Gateway Time-out</title></head>
+<body>
+<center><h1>504 Gateway Time-out</h1></center>
+<hr><center>nginx/1.27.5</center>
+</body>
+</html>
+
+real	0m5.006s
+user	0m0.000s
+sys	0m0.005s
+
+$ docker compose logs --tail 2 frontend
+frontend-1  | 172.18.0.1 - - [19/Nov/2026:20:41:15 +0000] "GET /api/health HTTP/1.1" 504 167 "-" "curl/8.18.0" "-"
+frontend-1  | 2026/11/19 20:41:15 [error] 29#29: *25 upstream timed out (110: Operation timed out) while connecting to upstream, client: 172.18.0.1, server: _, request: "GET /api/health HTTP/1.1", upstream: "http://172.18.0.3:8000/health", host: "localhost:8080"
 
 $ docker compose ps -a
 NAME                              IMAGE                           COMMAND                  SERVICE    CREATED              STATUS                        PORTS
-aci606-docker-rescue-backend-1    aci606-docker-rescue-backend    "uvicorn main:app --…"   backend    About a minute ago   Exited (0) 15 seconds ago     
-aci606-docker-rescue-db-1         postgres:16-alpine              "docker-entrypoint.s…"   db         About a minute ago   Up 22 seconds (healthy)       5432/tcp
+aci606-docker-rescue-backend-1    aci606-docker-rescue-backend    "uvicorn main:app --…"   backend    About a minute ago   Exited (0) 5 seconds ago      
+aci606-docker-rescue-db-1         postgres:16-alpine              "docker-entrypoint.s…"   db         About a minute ago   Up 12 seconds (healthy)       5432/tcp
 aci606-docker-rescue-frontend-1   aci606-docker-rescue-frontend   "/docker-entrypoint.…"   frontend   About a minute ago   Up About a minute (healthy)   0.0.0.0:8080->80/tcp, [::]:8080->80/tcp
 
 ## RECUPERACION
@@ -24,10 +41,10 @@ $ docker compose start backend
  Container aci606-docker-rescue-backend-1 Started 
 
 $ docker compose ps
-NAME                              IMAGE                           COMMAND                  SERVICE    CREATED         STATUS                        PORTS
-aci606-docker-rescue-backend-1    aci606-docker-rescue-backend    "uvicorn main:app --…"   backend    2 minutes ago   Up 6 seconds (healthy)        8000/tcp
-aci606-docker-rescue-db-1         postgres:16-alpine              "docker-entrypoint.s…"   db         2 minutes ago   Up About a minute (healthy)   5432/tcp
-aci606-docker-rescue-frontend-1   aci606-docker-rescue-frontend   "/docker-entrypoint.…"   frontend   2 minutes ago   Up 2 minutes (healthy)        0.0.0.0:8080->80/tcp, [::]:8080->80/tcp
+NAME                              IMAGE                           COMMAND                  SERVICE    CREATED              STATUS                        PORTS
+aci606-docker-rescue-backend-1    aci606-docker-rescue-backend    "uvicorn main:app --…"   backend    About a minute ago   Up 6 seconds (healthy)        8000/tcp
+aci606-docker-rescue-db-1         postgres:16-alpine              "docker-entrypoint.s…"   db         About a minute ago   Up 24 seconds (healthy)       5432/tcp
+aci606-docker-rescue-frontend-1   aci606-docker-rescue-frontend   "/docker-entrypoint.…"   frontend   About a minute ago   Up About a minute (healthy)   0.0.0.0:8080->80/tcp, [::]:8080->80/tcp
 
 $ curl -s http://localhost:8080/api/items
-[{"id":1,"name":"robot-1","created_at":"2026-11-19T20:32:04.810831"},{"id":2,"name":"robot-2","created_at":"2026-11-19T20:32:04.821109"}]
+[{"id":1,"name":"robot-1","created_at":"2026-11-19T20:39:41.898318"},{"id":2,"name":"robot-2","created_at":"2026-11-19T20:39:41.906786"}]

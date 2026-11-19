@@ -2,11 +2,8 @@
 $ sed -i 's/^FRONTEND_PORT=.*/FRONTEND_PORT=9090/' .env && grep FRONTEND_PORT .env
 FRONTEND_PORT=9090
 
-$ docker compose up -d 2>&1 | tail -4
- Container aci606-docker-rescue-backend-1 Waiting 
- Container aci606-docker-rescue-backend-1 Healthy 
- Container aci606-docker-rescue-frontend-1 Starting 
- Container aci606-docker-rescue-frontend-1 Started 
+$ docker compose up -d >/dev/null 2>&1; echo "docker compose up -d -> codigo de salida $?"
+docker compose up -d -> codigo de salida 0
 
 $ docker compose ps frontend
 NAME                              IMAGE                           COMMAND                  SERVICE    CREATED          STATUS                    PORTS
@@ -18,11 +15,8 @@ puerto 9090 -> HTTP 200
 $ curl -s -o /dev/null --max-time 3 -w 'puerto 8080 -> HTTP %{http_code}\n' http://localhost:8080/ || true
 puerto 8080 -> HTTP 000
 
-$ docker compose up -d 2>&1 | tail -4
- Container aci606-docker-rescue-backend-1 Waiting 
- Container aci606-docker-rescue-backend-1 Healthy 
- Container aci606-docker-rescue-frontend-1 Starting 
- Container aci606-docker-rescue-frontend-1 Started 
+$ docker compose up -d >/dev/null 2>&1; echo "docker compose up -d -> codigo de salida $?"
+docker compose up -d -> codigo de salida 0
 
 $ docker compose ps frontend
 NAME                              IMAGE                           COMMAND                  SERVICE    CREATED          STATUS                    PORTS

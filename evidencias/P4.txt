@@ -6,7 +6,7 @@ $ docker compose stop db
 $ curl -s -i http://localhost:8080/api/health
 HTTP/1.1 503 Service Unavailable
 Server: nginx/1.27.5
-Date: Thu, 19 Nov 2026 20:32:40 GMT
+Date: Thu, 19 Nov 2026 20:40:17 GMT
 Content-Type: application/json
 Content-Length: 212
 Connection: keep-alive

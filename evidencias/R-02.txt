@@ -32,8 +32,8 @@ backend-1  | ModuleNotFoundError: No module named 'psycopg2'
 ## VERIFICACION (el modulo psycopg2 ya se importa)
 $ docker compose exec -T backend pip show psycopg2-binary || docker compose run --rm --no-deps -T backend pip show psycopg2-binary
 service "backend" is not running
- Container aci606-docker-rescue-backend-run-4f0fd30997da Creating 
- Container aci606-docker-rescue-backend-run-4f0fd30997da Created 
+ Container aci606-docker-rescue-backend-run-9bda96d6af44 Creating 
+ Container aci606-docker-rescue-backend-run-9bda96d6af44 Created 
 Name: psycopg2-binary
 Version: 2.9.10
 Summary: psycopg2 - Python-PostgreSQL Database Adapter
