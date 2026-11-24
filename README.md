@@ -71,6 +71,8 @@ docker images | grep aci606-docker-rescue
 
 `docker compose up --build -d` también construye antes de iniciar.
 
+Prueba final verificada en un Codespace limpio (23-11-2026): los tres servicios quedaron `healthy` ([captura](docs/evidencia_codespace.jpg)).
+
 ## Iniciar (cualquier equipo con Docker)
 
 ```bash
